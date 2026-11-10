@@ -225,7 +225,8 @@
     .weeks{background:var(--paper);padding-top:36px;padding-bottom:10px}
     .weeks-head{text-align:center;padding-bottom:12px}
     .stack{position:relative}
-    .stack-item{height:88vh;min-height:560px;position:sticky;top:70px;display:flex;align-items:center;justify-content:center}
+    .stack-item{height:75vh;min-height:480px;max-height:640px;position:sticky;top:76px;display:flex;align-items:center;justify-content:center}
+    .stack-item:last-child{height:auto;min-height:auto;padding-bottom:24px}
     .stack-card{
       position:relative;
       top:calc(var(--i) * 22px);
@@ -449,16 +450,17 @@
     .about p{color:#edd2d9;font-weight:300;font-size:17.5px}
     .about strong{color:#fff;font-weight:700}
 
-    /* ===== 7. JOIN: קומפוננטת הצטרפות ומחיר (קו מפריד אנכי, מחיר בלבן, ללא מסגרת מיותרת) ===== */
-    .join{background:var(--light-green);overflow:clip}
+    /* ===== 7. JOIN: קומפוננטת הצטרפות ומחיר (ורוד בהיר, ללא צל בכפתור, ספירה יורדת) ===== */
+    .join{background:var(--paper);overflow:clip}
     .join-card{
-      background:linear-gradient(160deg,#2b5252,#1f3d3d);
-      color:#fff;
+      background:linear-gradient(150deg, #fff2ed 0%, #fae0d8 100%);
+      color:var(--deep);
+      border:1px solid rgba(220,135,115,.35);
       border-radius:32px;
       padding:clamp(32px,5.5vw,56px);
       display:grid;
       gap:40px;
-      box-shadow:0 36px 70px -36px rgba(18,35,36,.75);
+      box-shadow:0 24px 60px -20px rgba(74,42,53,.1);
     }
     @media(min-width:860px){
       .join-card{
@@ -466,11 +468,11 @@
         align-items:center;
       }
     }
-    .join-card h2{color:#fff;margin-bottom:10px}
-    .join-card .tag{color:var(--peach);font-size:16px}
-    .checks{list-style:none;padding:0;display:grid;gap:12px;margin-top:22px}
-    .checks li{display:flex;gap:12px;align-items:flex-start;color:#d8e7e2}
-    .checks svg{flex:0 0 20px;width:20px;height:20px;margin-top:5px;color:var(--peach)}
+    .join-card h2{color:#152e2e;margin-bottom:10px;font-size:clamp(32px,4.5vw,46px)}
+    .join-card .tag{color:#923e32;font-size:17px;font-weight:600}
+    .checks{list-style:none;padding:0;display:grid;gap:14px;margin-top:24px}
+    .checks li{display:flex;gap:12px;align-items:flex-start;color:#1d3535;font-size:18px;font-weight:500}
+    .checks svg{flex:0 0 20px;width:20px;height:20px;margin-top:5px;color:#c94e39}
     
     .price-side{
       display:flex;
@@ -481,21 +483,33 @@
     }
     @media(min-width:860px){
       .price-side{
-        border-inline-start:1px solid rgba(255,255,255,.18);
+        border-inline-start:1px solid rgba(35,68,68,.16);
         padding-inline-start:44px;
       }
     }
-    .price-side .date{font-size:15px;color:var(--mint);margin-bottom:8px}
-    .price-side .label{font-size:15px;color:#cfe0da}
+    .price-side .date{font-size:15px;color:#5c3e43;margin-bottom:8px;font-weight:500}
+    .price-side .label{font-size:16px;color:#2c4747;font-weight:600}
     .price-side .price{
-      font:800 clamp(64px,8vw,80px) 'Heebo',sans-serif;
+      font:800 clamp(66px,8.5vw,84px) 'Heebo',sans-serif;
       line-height:1;
       margin:6px 0 16px;
-      color:#ffffff;
-      text-shadow:0 2px 14px rgba(0,0,0,.3);
+      color:#152e2e;
+      text-shadow:none;
     }
-    .price-side .price small{font-size:.45em;font-weight:600}
-    .price-side .btn{width:100%;max-width:280px}
+    .price-side .price small{font-size:.45em;font-weight:600;color:#2c4747}
+    .price-side .btn{
+      width:100%;max-width:280px;
+      box-shadow:none !important;
+      background:#1a3838;
+      color:#fff;
+      font-weight:600;
+      border:0;
+    }
+    .price-side .btn:hover{
+      background:#265050;
+      transform:translateY(-2px);
+      box-shadow:none !important;
+    }
 
     /* ===== 8. FAQ: שאלות ותשובות (רקע ירוק כהה, כותרת ממורכזת ללא כפילות) ===== */
     .faq{background:linear-gradient(180deg,#214040,#264949);color:#fff}
@@ -801,8 +815,8 @@
           <div class="price-side">
             <div class="date">תאריך התחלה: 1 בדצמבר, 2026</div>
             <div class="label">מחיר השקה מיוחד</div>
-            <div class="price"><span data-count="42">42</span><small> ₪</small></div>
-            <a class="btn btn--peach" href="#" data-join>מצטרפים למסע</a>
+            <div class="price"><span data-count="42" data-start="120">120</span><small> ₪</small></div>
+            <a class="btn" href="#join" data-join>מצטרפים למסע</a>
           </div>
         </div>
       </div>
@@ -823,31 +837,6 @@
           <details><summary>האם זה מתאים גם למי שלא מרגיש שחסר לו משהו בחיים?</summary><div class="ans">כן. שפע הוא מושג רחב הרבה יותר מכסף. המסע עוסק גם בתשומת לב, במשאבים, ביחסים, ברצונות, ביצירתיות, באפשרויות וביכולת לבחור ולפעול.</div></details>
           <details><summary>האם המסע הוא טיפול?</summary><div class="ans">לא. זהו תהליך אישי וקבוצתי של התבוננות ותרגול, והוא אינו טיפול נפשי או תחליף לליווי מקצועי כשיש בו צורך.</div></details>
           <details><summary>מי את שתבני ותובילי מסע כזה?</summary><div class="ans">אני לא פסיכולוגית או מטפלת, ולא מתיימרת להציע תהליך טיפולי. המסע נולד מתוך שנים של למידה, התנסות וחקירה אישית בעולמות המדיטציה, היוגה, ההתפתחות האישית ושינוי ההרגלים, לצד הניסיון המקצועי שלי בבניית חוויות ותהליכים.<br><br>את התוכן כולו יצרתי בעצמי, מתוך רצון לקחת רעיונות וכלים שאספתי לאורך הדרך ולבנות מהם מסע נגיש, מובנה ומחובר לחיים עצמם.</div></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. Launch: מחיר השקה בירוק כהה עם גרדיאנט עדין מתחת למחיר -->
-    <section class="launch">
-      <div class="wrap" data-stagger>
-        <span class="eyebrow">מחיר השקה מיוחד למחזור הראשון</span>
-        <div class="launch-price-wrap">
-          <div class="launch-price-glow" aria-hidden="true"></div>
-          <div class="big"><span data-count="42">42</span><small> ₪</small></div>
-        </div>
-        <p>המחיר המיוחד למחזור ההשקה. במחזורים הבאים המחיר יעלה.</p>
-        <div><a class="btn btn--peach" href="#join">אני מצטרף/ת למסע</a></div>
-      </div>
-    </section>
-
-    <!-- 10. Closing Banner: שביל יום 1 ברקע, צר ומעודן -->
-    <section class="closing-section">
-      <div class="wrap">
-        <div class="closing-banner" data-stagger>
-          <p>לפעמים כל מה שצריך כדי לראות אפשרות חדשה הוא לשנות קצת את נקודת המבט.</p>
-          <p>21 ימים של תשומת לב, התבוננות, גילוי ותרגול יכולים לפתוח מרחב חדש של מחשבה ובחירה.</p>
-          <h2 class="final">בואו להעיר את השפע.</h2>
-          <div><a class="btn btn--peach" href="#join">מצטרפים למסע</a></div>
         </div>
       </div>
     </section>
@@ -1008,25 +997,36 @@
     }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < innerHeight * 0.75) el.classList.add('in');
+      if (rect.top < innerHeight * 0.98) el.classList.add('in');
       else io.observe(el);
     });
 
-    // ---------- Count-up animation ----------
+    // ---------- Countdown animation (ספירה יורדת ממספר גבוה למחיר ההשקה) ----------
     document.querySelectorAll('[data-count]').forEach(el => {
       const target = +el.dataset.count;
-      if (reduce) return;
-      el.textContent = '0';
+      const start = +el.dataset.start || 120;
+      if (reduce) {
+        el.textContent = target;
+        return;
+      }
+      el.textContent = start;
       new IntersectionObserver(([e], o) => {
         if (!e.isIntersecting) return;
         o.disconnect();
-        const s = performance.now();
-        (function f(n) {
-          const k = Math.min(1, (n - s) / 1400);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
-          if (k < 1) requestAnimationFrame(f);
-        })(s);
-      }, { threshold: .5 }).observe(el);
+        const duration = 1400;
+        const startTime = performance.now();
+        (function tick(now) {
+          const progress = Math.min(1, (now - startTime) / duration);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(start - (start - target) * ease);
+          el.textContent = current;
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = target;
+          }
+        })(startTime);
+      }, { threshold: .3 }).observe(el);
     });
 
     // ---------- Scroll-linked: progress bar, nav, stacking cards, parallax ----------
