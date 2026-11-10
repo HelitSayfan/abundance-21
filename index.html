@@ -1041,6 +1041,10 @@
           <span class="field-error" id="errConsent" aria-live="polite"></span>
         </div>
 
+        <div class="form-global-error" id="formGlobalError" role="alert" style="display:none; margin-bottom:14px; padding:10px 14px; border-radius:10px; background:rgba(214,80,60,.08); border:1px solid rgba(214,80,60,.25); color:#a8281a; font-size:14px; line-height:1.4; text-align:center;">
+          משהו השתבש, נסי שוב
+        </div>
+
         <button type="submit" class="btn btn--peach btn--submit" id="btnSubmitReg">
           <span class="btn-text">להמשך לתשלום</span>
         </button>
@@ -1085,6 +1089,7 @@
     const btnPayboxDirect = document.getElementById('btnPayboxDirect');
     const successTimerNotice = document.getElementById('successTimerNotice');
     const countdownSec = document.getElementById('countdownSec');
+    const formGlobalError = document.getElementById('formGlobalError');
 
     const regForm = document.getElementById('regForm');
     const btnSubmit = document.getElementById('btnSubmitReg');
@@ -1149,6 +1154,7 @@
     function clearErrors() {
       [errName, errEmail, errPhone, errConsent].forEach(el => { if (el) el.textContent = ''; });
       [inputName, inputEmail, inputPhone].forEach(el => { if (el) el.classList.remove('has-error'); });
+      if (formGlobalError) { formGlobalError.style.display = 'none'; formGlobalError.textContent = ''; }
     }
 
     function validateEmail(v) {
@@ -1161,7 +1167,7 @@
     }
 
     if (regForm) {
-      regForm.addEventListener('submit', function (e) {
+      regForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         clearErrors();
 
@@ -1211,7 +1217,7 @@
           timestamp: new Date().toISOString()
         };
 
-        // גיבוי מקומי למקרה של תקלת רשת
+        // גיבוי מקומי
         try {
           const pending = JSON.parse(localStorage.getItem('pending_registrations') || '[]');
           pending.push(payload);
@@ -1220,51 +1226,77 @@
           console.warn('Storage error:', storageErr);
         }
 
-        // שליחה ברקע ל-Google Apps Script Webhook
-        if (SHEET_WEBHOOK_URL && SHEET_WEBHOOK_URL.trim() !== '') {
-          fetch(SHEET_WEBHOOK_URL, {
+        // שליחה עם CORS תקין, טיימאוט של 8 שניות, ואימות שהשורה נשמרה ב-Google Apps Script
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+        try {
+          if (!SHEET_WEBHOOK_URL || SHEET_WEBHOOK_URL.trim() === '') {
+            throw new Error('SHEET_WEBHOOK_URL missing');
+          }
+
+          const res = await fetch(SHEET_WEBHOOK_URL, {
             method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          }).catch(fetchErr => {
-            console.error('Sheet webhook error:', fetchErr);
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
           });
-        }
+          clearTimeout(timeoutId);
 
-        // מעבר מיידי למסך תודה חם בפופ-אפ (אופציה 2)
-        if (modalHeader) modalHeader.style.display = 'none';
-        if (regForm) regForm.style.display = 'none';
-        if (modalSuccess) modalSuccess.style.display = 'block';
-
-        const firstName = nameVal.trim().split(' ')[0] || nameVal.trim();
-        if (successName) successName.textContent = firstName;
-
-        if (PAYBOX_URL && PAYBOX_URL.trim() !== '') {
-          if (btnPayboxDirect) {
-            btnPayboxDirect.href = PAYBOX_URL;
-            btnPayboxDirect.style.display = 'inline-flex';
+          if (!res.ok) {
+            throw new Error('HTTP status ' + res.status);
           }
-          if (successRedirectMsg) successRedirectMsg.style.display = '';
-          if (successTimerNotice) successTimerNotice.style.display = '';
 
-          let secondsLeft = 3;
-          if (countdownSec) countdownSec.textContent = secondsLeft;
-          const countdownInterval = setInterval(() => {
-            secondsLeft -= 1;
-            if (countdownSec) countdownSec.textContent = secondsLeft;
-            if (secondsLeft <= 0) {
-              clearInterval(countdownInterval);
-              window.location.href = PAYBOX_URL;
+          const result = await res.json();
+          if (!result || result.status !== 'success') {
+            throw new Error((result && result.message) || 'Save failed');
+          }
+
+          // === אישור שהשורה נשמרה בהצלחה! כעת מעבירים לפייבוקס ===
+          if (modalHeader) modalHeader.style.display = 'none';
+          if (regForm) regForm.style.display = 'none';
+          if (modalSuccess) modalSuccess.style.display = 'block';
+
+          const firstName = nameVal.trim().split(' ')[0] || nameVal.trim();
+          if (successName) successName.textContent = firstName;
+
+          if (PAYBOX_URL && PAYBOX_URL.trim() !== '') {
+            if (btnPayboxDirect) {
+              btnPayboxDirect.href = PAYBOX_URL;
+              btnPayboxDirect.style.display = 'inline-flex';
             }
-          }, 1000);
-        } else {
-          // אם קישור פייבוקס טרם הוגדר
-          if (btnPayboxDirect) btnPayboxDirect.style.display = 'none';
-          if (successRedirectMsg) {
-            successRedirectMsg.innerHTML = '<strong>נרשמת בהצלחה! קישור התשלום יישלח אלייך בהקדם.</strong>';
+            if (successRedirectMsg) successRedirectMsg.style.display = '';
+            if (successTimerNotice) successTimerNotice.style.display = '';
+
+            let secondsLeft = 3;
+            if (countdownSec) countdownSec.textContent = secondsLeft;
+            const countdownInterval = setInterval(() => {
+              secondsLeft -= 1;
+              if (countdownSec) countdownSec.textContent = secondsLeft;
+              if (secondsLeft <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = PAYBOX_URL;
+              }
+            }, 1000);
+          } else {
+            if (btnPayboxDirect) btnPayboxDirect.style.display = 'none';
+            if (successRedirectMsg) {
+              successRedirectMsg.innerHTML = '<strong>נרשמת בהצלחה! קישור התשלום יישלח אלייך בהקדם.</strong>';
+            }
+            if (successTimerNotice) successTimerNotice.style.display = 'none';
           }
-          if (successTimerNotice) successTimerNotice.style.display = 'none';
+
+        } catch (saveErr) {
+          clearTimeout(timeoutId);
+          console.error('Registration save error:', saveErr);
+
+          // לא מעבירים לתשלום! משאירים את הפרטים בטופס ומציגים הודעת שגיאה וכפתור ניסיון חוזר
+          if (formGlobalError) {
+            formGlobalError.textContent = 'משהו השתבש, נסי שוב';
+            formGlobalError.style.display = 'block';
+          }
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = '<span class="btn-text">ניסיון חוזר</span>';
         }
       });
     }
