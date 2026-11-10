@@ -208,29 +208,6 @@
     /* ===== 3. WEEKS: STACKING CARDS (שלושת השלבים - רק גווני ירוק, רווחים מהודקים) ===== */
     .weeks{background:var(--paper);padding-top:40px;padding-bottom:30px}
     .weeks-head{text-align:center;padding-bottom:12px}
-    .cards-mode-toggle{
-      display:inline-flex;
-      gap:6px;
-      background:#edf4f1;
-      padding:5px;
-      border-radius:999px;
-      margin-top:12px;
-      border:1px solid rgba(35,68,68,.12);
-    }
-    .cards-mode-toggle button{
-      border:0;
-      background:transparent;
-      color:var(--deep);
-      padding:6px 16px;
-      border-radius:999px;
-      cursor:pointer;
-      font:600 13.5px 'Heebo',sans-serif;
-      transition:background .25s,color .25s;
-    }
-    .cards-mode-toggle button.active{
-      background:var(--deep);
-      color:#fff;
-    }
     .stack{position:relative}
     .stack-item{height:88vh;min-height:560px;position:sticky;top:70px;display:flex;align-items:center;justify-content:center}
     .stack-card{
@@ -277,7 +254,6 @@
       justify-content:center;
       border-radius:20px;
       overflow:hidden;
-      box-shadow:0 16px 36px -14px rgba(0,0,0,.35);
     }
     .sc-media img{
       width:100%;
@@ -287,32 +263,6 @@
       transform-origin:center;
       will-change:transform;
     }
-
-    /* Full-bleed background image mode for cards */
-    body.cards-full-bg .stack-card{
-      grid-template-columns:1fr;
-      align-items:flex-end;
-      padding:clamp(28px,4.5vw,52px);
-    }
-    body.cards-full-bg .sc-media{
-      position:absolute;
-      inset:0;
-      max-height:none;
-      border-radius:0;
-      box-shadow:none;
-    }
-    body.cards-full-bg .sc-media::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(270deg,rgba(20,40,40,.88) 0%,rgba(20,40,40,.66) 52%,rgba(20,40,40,.18) 100%);
-    }
-    body.cards-full-bg .sc-text{
-      max-width:520px;
-    }
-    body.cards-full-bg .sc-chip{color:var(--peach)}
-    body.cards-full-bg .sc-text h3{color:#fff}
-    body.cards-full-bg .sc-text p{color:#e6f2ee}
 
     @media(max-width:767px){
       .stack-card{
@@ -324,10 +274,6 @@
         padding:22px;
       }
       .sc-media{max-height:200px;order:-1}
-      body.cards-full-bg .stack-card{
-        grid-template-rows:1fr;
-        min-height:420px;
-      }
     }
 
     /* ===== 4. HOW: איך זה עובד (ירוק כהה, ממורכז) ===== */
@@ -629,10 +575,6 @@
       <div class="wrap weeks-head" data-stagger>
         <span class="eyebrow">שלושה שלבים</span>
         <h2>שלושה שבועות. שלושה שלבים.</h2>
-        <div class="cards-mode-toggle" role="region" aria-label="בחירת סגנון כרטיסים">
-          <button type="button" id="btnCardsSplit" class="active">🎨 רקע ירוק + תמונה</button>
-          <button type="button" id="btnCardsFullBg">🖼️ תמונה על כל הכרטיס</button>
-        </div>
       </div>
       <div class="stack" id="stack">
         <!-- Week 1: לראות (ירוק בהיר רך) -->
@@ -953,21 +895,6 @@
       render();
       resetAutoplay();
 
-      // Cards mode switcher (Split color+image vs Full-bleed image)
-      const btnSplit = document.getElementById('btnCardsSplit');
-      const btnFullBg = document.getElementById('btnCardsFullBg');
-      if (btnSplit && btnFullBg) {
-        btnSplit.addEventListener('click', () => {
-          document.body.classList.remove('cards-full-bg');
-          btnSplit.classList.add('active');
-          btnFullBg.classList.remove('active');
-        });
-        btnFullBg.addEventListener('click', () => {
-          document.body.classList.add('cards-full-bg');
-          btnFullBg.classList.add('active');
-          btnSplit.classList.remove('active');
-        });
-      }
     })();
 
     // ---------- Reveal system ----------
