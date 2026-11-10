@@ -526,41 +526,49 @@
       box-shadow:none !important;
     }
 
-    /* ===== 8. FAQ: שאלות ותשובות (רקע ירוק כהה, כותרת ממורכזת ללא כפילות) ===== */
+    /* ===== 8. FAQ: שאלות ותשובות (קוים דקים לבנים שקופים, ללא רקע לקלפים) ===== */
     .faq{background:linear-gradient(180deg,#214040,#264949);color:#fff}
     .faq-head{text-align:center;margin-bottom:36px}
     .faq-head h2{color:#fff;text-align:center;margin-bottom:0}
     .faq details{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:18px;
-      margin-bottom:12px;
+      background:transparent;
+      border:none;
+      border-bottom:1px solid rgba(255,255,255,.16);
+      border-radius:0;
+      margin-bottom:0;
       overflow:hidden;
       interpolate-size:allow-keywords;
-      transition:border-color .35s,background .35s;
+      transition:border-color .3s;
+    }
+    .faq details:first-child{
+      border-top:1px solid rgba(255,255,255,.16);
     }
     .faq details[open]{
-      border-color:rgba(238,155,132,.5);
-      background:rgba(255,255,255,.08);
+      background:transparent;
+      border-bottom-color:rgba(255,255,255,.24);
     }
     .faq details::details-content{height:0;overflow:clip;transition:height .45s var(--ease),content-visibility .45s allow-discrete}
     .faq details[open]::details-content{height:auto}
     .faq summary{
       list-style:none;cursor:pointer;
-      padding:22px 24px;
-      font:600 18px 'Heebo',sans-serif;
+      padding:24px 8px;
+      font:600 18.5px 'Heebo',sans-serif;
       display:flex;justify-content:space-between;gap:16px;align-items:center;
       color:#fff;transition:color .3s;
     }
-    .faq summary:hover{color:var(--peach)}
+    .faq summary:hover{color:#e6f3ee}
     .faq summary::-webkit-details-marker{display:none}
     .faq summary::after{
       content:"";flex:0 0 10px;height:10px;
-      border-inline-end:2px solid var(--peach);border-bottom:2px solid var(--peach);
-      transform:rotate(45deg) translateY(-2px);transition:transform .4s var(--ease);
+      border-inline-end:2px solid rgba(255,255,255,.75);border-bottom:2px solid rgba(255,255,255,.75);
+      transform:rotate(45deg) translateY(-2px);transition:transform .4s var(--ease),border-color .3s;
     }
-    .faq details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
-    .faq .ans{padding:0 24px 24px;color:#cfe0da;font-size:16.5px;line-height:1.75}
+    .faq details[open] summary::after{
+      transform:rotate(-135deg) translateY(-2px);
+      border-inline-end-color:#fff;
+      border-bottom-color:#fff;
+    }
+    .faq .ans{padding:0 8px 24px;color:#d1e5df;font-size:17px;line-height:1.8;font-weight:300}
 
     /* ===== 9. LAUNCH PRICE: ירוק כהה עם גרדיאנט עדין מתחת למחיר ===== */
     .launch{
