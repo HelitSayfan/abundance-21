@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      width:1200px;
+      height:630px;
+      overflow:hidden;
+      font-family:'Heebo',sans-serif;
+      background:#234444;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .bg-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:50% 50%;
+      opacity:0.35;
+      filter:brightness(0.9) contrast(1.1);
+    }
+    .bg-gradient{
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse at 50% 40%, rgba(35,68,68,0.45) 0%, rgba(20,38,38,0.92) 80%);
+    }
+    .card{
+      position:relative;
+      z-index:2;
+      width:1060px;
+      height:520px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(255,255,255,0.22);
+      border-radius:36px;
+      box-shadow:0 30px 80px -20px rgba(0,0,0,0.65);
+      padding:52px 64px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      text-align:right;
+      color:#fff;
+    }
+    .top-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(247,194,168,0.18);
+      border:1px solid rgba(247,194,168,0.35);
+      color:#fcd9c7;
+      padding:8px 22px;
+      border-radius:999px;
+      font-size:17px;
+      font-weight:600;
+      letter-spacing:0.04em;
+      align-self:flex-start;
+    }
+    .top-badge .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#f7c2a8;
+      box-shadow:0 0 10px #f7c2a8;
+    }
+    .content h1{
+      font-size:74px;
+      font-weight:900;
+      line-height:1.05;
+      letter-spacing:-0.03em;
+      color:#ffffff;
+      margin-top:10px;
+      margin-bottom:14px;
+      text-shadow:0 2px 24px rgba(0,0,0,0.45);
+    }
+    .content .subtitle{
+      font-size:26px;
+      font-weight:400;
+      color:#dcedea;
+      line-height:1.45;
+      max-width:880px;
+    }
+    .bottom-bar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-top:1px solid rgba(255,255,255,0.15);
+      padding-top:22px;
+    }
+    .meta-tags{
+      display:flex;
+      gap:28px;
+      color:#d0e6df;
+      font-size:17px;
+      font-weight:500;
+      white-space:nowrap;
+    }
+    .meta-tags span{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .meta-tags span::before{
+      content:"✦";
+      color:#f7c2a8;
+      font-size:14px;
+    }
+    .author{
+      font-size:17px;
+      font-weight:600;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      white-space:nowrap;
+    }
+    .author-pill{
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.18);
+      padding:6px 14px;
+      border-radius:999px;
+      color:#fcd9c7;
+      font-size:14px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .author-pill svg{
+      width:14px;
+      height:14px;
+      fill:currentColor;
+    }
+  </style>
+</head>
+<body>
+  <img class="bg-img" src="assets/hero-cover.png" alt="">
+  <div class="bg-gradient"></div>
+
+  <div class="card">
+    <div class="top-badge">
+      <span class="dot"></span>
+      <span>מסע דיגיטלי קבוצתי · 21 ימים</span>
+    </div>
+
+    <div class="content">
+      <h1>להעיר את השפע</h1>
+      <p class="subtitle">21 ימים של מדיטציות מוקלטות, תרגילי עומק והתבוננות יומיומית להרחבת נקודת המבט ולפתיחת אפשרויות חדשות.</p>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="meta-tags">
+        <span>מתחילים ב-1 בדצמבר, 2026</span>
+        <span>קבוצת וואטסאפ שקטה</span>
+        <span>מחיר השקה: 42 ₪</span>
+      </div>
+      <div class="author">
+        <span>הלית סייפן אלטמן</span>
+        <div class="author-pill">
+          <span>Say Digital Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
