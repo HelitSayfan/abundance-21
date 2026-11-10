@@ -208,6 +208,29 @@
     /* ===== 3. WEEKS: STACKING CARDS (שלושת השלבים - רק גווני ירוק, רווחים מהודקים) ===== */
     .weeks{background:var(--paper);padding-top:40px;padding-bottom:30px}
     .weeks-head{text-align:center;padding-bottom:12px}
+    .cards-mode-toggle{
+      display:inline-flex;
+      gap:6px;
+      background:#edf4f1;
+      padding:5px;
+      border-radius:999px;
+      margin-top:12px;
+      border:1px solid rgba(35,68,68,.12);
+    }
+    .cards-mode-toggle button{
+      border:0;
+      background:transparent;
+      color:var(--deep);
+      padding:6px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font:600 13.5px 'Heebo',sans-serif;
+      transition:background .25s,color .25s;
+    }
+    .cards-mode-toggle button.active{
+      background:var(--deep);
+      color:#fff;
+    }
     .stack{position:relative}
     .stack-item{height:88vh;min-height:560px;position:sticky;top:70px;display:flex;align-items:center;justify-content:center}
     .stack-card{
@@ -232,22 +255,20 @@
         gap:clamp(24px,3.5vw,48px);
       }
     }
-    .sc-text{display:flex;flex-direction:column;justify-content:center;text-align:right}
+    .sc-text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;text-align:right}
     .sc-chip{
       display:inline-block;
       align-self:flex-start;
-      font:600 13px 'Heebo',sans-serif;
+      font:600 14px 'Heebo',sans-serif;
       letter-spacing:.06em;
-      background:var(--chip-bg);
       color:var(--chip-fg);
-      border-radius:999px;
-      padding:5px 16px;
-      margin-bottom:12px;
+      margin-bottom:8px;
     }
     .sc-text h3{font-size:clamp(36px,5.2vw,56px);font-weight:700;margin-bottom:14px;color:var(--fg)}
     .sc-text p{font-size:clamp(16px,1.85vw,19px);line-height:1.75;color:var(--desc-fg)}
     .sc-media{
       position:relative;
+      z-index:1;
       width:100%;
       height:100%;
       max-height:380px;
@@ -266,6 +287,33 @@
       transform-origin:center;
       will-change:transform;
     }
+
+    /* Full-bleed background image mode for cards */
+    body.cards-full-bg .stack-card{
+      grid-template-columns:1fr;
+      align-items:flex-end;
+      padding:clamp(28px,4.5vw,52px);
+    }
+    body.cards-full-bg .sc-media{
+      position:absolute;
+      inset:0;
+      max-height:none;
+      border-radius:0;
+      box-shadow:none;
+    }
+    body.cards-full-bg .sc-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(270deg,rgba(20,40,40,.88) 0%,rgba(20,40,40,.66) 52%,rgba(20,40,40,.18) 100%);
+    }
+    body.cards-full-bg .sc-text{
+      max-width:520px;
+    }
+    body.cards-full-bg .sc-chip{color:var(--peach)}
+    body.cards-full-bg .sc-text h3{color:#fff}
+    body.cards-full-bg .sc-text p{color:#e6f2ee}
+
     @media(max-width:767px){
       .stack-card{
         grid-template-columns:1fr;
@@ -276,6 +324,10 @@
         padding:22px;
       }
       .sc-media{max-height:200px;order:-1}
+      body.cards-full-bg .stack-card{
+        grid-template-rows:1fr;
+        min-height:420px;
+      }
     }
 
     /* ===== 4. HOW: איך זה עובד (ירוק כהה, ממורכז) ===== */
@@ -577,11 +629,15 @@
       <div class="wrap weeks-head" data-stagger>
         <span class="eyebrow">שלושה שלבים</span>
         <h2>שלושה שבועות. שלושה שלבים.</h2>
+        <div class="cards-mode-toggle" role="region" aria-label="בחירת סגנון כרטיסים">
+          <button type="button" id="btnCardsSplit" class="active">🎨 רקע ירוק + תמונה</button>
+          <button type="button" id="btnCardsFullBg">🖼️ תמונה על כל הכרטיס</button>
+        </div>
       </div>
       <div class="stack" id="stack">
         <!-- Week 1: לראות (ירוק בהיר רך) -->
         <div class="stack-item">
-          <article class="stack-card" style="--i:0;--bg:linear-gradient(145deg,#e3f2ec,#cde6dc);--fg:#16292a;--desc-fg:#324a48;--chip-bg:rgba(255,255,255,.65);--chip-fg:#16292a">
+          <article class="stack-card" style="--i:0;--bg:linear-gradient(145deg,#ebf6f1,#d7ece4);--fg:#16292a;--desc-fg:#2e4645;--chip-fg:#2e5757">
             <div class="sc-text">
               <span class="sc-chip">שבוע ראשון · ימים 1–7</span>
               <h3>לראות</h3>
@@ -592,9 +648,9 @@
             </div>
           </article>
         </div>
-        <!-- Week 2: לשחרר (ירוק בינוני) -->
+        <!-- Week 2: לשחרר (ירוק בהיר-בינוני מואר לקריאות מעולה) -->
         <div class="stack-item">
-          <article class="stack-card" style="--i:1;--bg:linear-gradient(145deg,#a5cfbf,#7eb7a3);--fg:#122424;--desc-fg:#1d3736;--chip-bg:rgba(255,255,255,.55);--chip-fg:#122424">
+          <article class="stack-card" style="--i:1;--bg:linear-gradient(145deg,#cbe5db,#b5d9cb);--fg:#142828;--desc-fg:#1f3b3a;--chip-fg:#264b49">
             <div class="sc-text">
               <span class="sc-chip">שבוע שני · ימים 8–14</span>
               <h3>לשחרר</h3>
@@ -605,9 +661,9 @@
             </div>
           </article>
         </div>
-        <!-- Week 3: ליצור ולהתרחב (ירוק יער כהה ועמוק עם תמונת יום 21 המרהיבה) -->
+        <!-- Week 3: ליצור ולהתרחב (ירוק-טיאל עמוק עם תמונת יום 21) -->
         <div class="stack-item">
-          <article class="stack-card" style="--i:2;--bg:linear-gradient(145deg,#2e5757,#214242);--fg:#edf7f3;--desc-fg:#cbe3da;--chip-bg:rgba(255,255,255,.16);--chip-fg:#edf7f3">
+          <article class="stack-card" style="--i:2;--bg:linear-gradient(145deg,#2e5757,#214242);--fg:#edf7f3;--desc-fg:#d6ebe3;--chip-fg:#b7daca">
             <div class="sc-text">
               <span class="sc-chip">שבוע שלישי · ימים 15–21</span>
               <h3>ליצור ולהתרחב</h3>
@@ -727,6 +783,31 @@
           <details><summary>האם זה מתאים גם למי שלא מרגיש שחסר לו משהו בחיים?</summary><div class="ans">כן. שפע הוא מושג רחב הרבה יותר מכסף. המסע עוסק גם בתשומת לב, במשאבים, ביחסים, ברצונות, ביצירתיות, באפשרויות וביכולת לבחור ולפעול.</div></details>
           <details><summary>האם המסע הוא טיפול?</summary><div class="ans">לא. זהו תהליך אישי וקבוצתי של התבוננות ותרגול, והוא אינו טיפול נפשי או תחליף לליווי מקצועי כשיש בו צורך.</div></details>
           <details><summary>מי את שתבני ותובילי מסע כזה?</summary><div class="ans">אני לא פסיכולוגית או מטפלת, ולא מתיימרת להציע תהליך טיפולי. המסע נולד מתוך שנים של למידה, התנסות וחקירה אישית בעולמות המדיטציה, היוגה, ההתפתחות האישית ושינוי ההרגלים, לצד הניסיון המקצועי שלי בבניית חוויות ותהליכים.<br><br>את התוכן כולו יצרתי בעצמי, מתוך רצון לקחת רעיונות וכלים שאספתי לאורך הדרך ולבנות מהם מסע נגיש, מובנה ומחובר לחיים עצמם.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Launch: מחיר השקה בירוק כהה עם גרדיאנט עדין מתחת למחיר -->
+    <section class="launch">
+      <div class="wrap" data-stagger>
+        <span class="eyebrow">מחיר השקה מיוחד למחזור הראשון</span>
+        <div class="launch-price-wrap">
+          <div class="launch-price-glow" aria-hidden="true"></div>
+          <div class="big"><span data-count="42">42</span><small> ₪</small></div>
+        </div>
+        <p>המחיר המיוחד למחזור ההשקה. במחזורים הבאים המחיר יעלה.</p>
+        <div><a class="btn btn--peach" href="#join">אני מצטרף/ת למסע</a></div>
+      </div>
+    </section>
+
+    <!-- 10. Closing Banner: שביל יום 1 ברקע, צר ומעודן -->
+    <section class="closing-section">
+      <div class="wrap">
+        <div class="closing-banner" data-stagger>
+          <p>לפעמים כל מה שצריך כדי לראות אפשרות חדשה הוא לשנות קצת את נקודת המבט.</p>
+          <p>21 ימים של תשומת לב, התבוננות, גילוי ותרגול יכולים לפתוח מרחב חדש של מחשבה ובחירה.</p>
+          <h2 class="final">בואו להעיר את השפע.</h2>
+          <div><a class="btn btn--peach" href="#join">מצטרפים למסע</a></div>
         </div>
       </div>
     </section>
@@ -872,19 +953,19 @@
       render();
       resetAutoplay();
 
-      // Theme switcher for Hero (Light vs Pleasant Teal)
-      const btnLight = document.getElementById('btnHeroLight');
-      const btnDark = document.getElementById('btnHeroDark');
-      if (btnLight && btnDark) {
-        btnLight.addEventListener('click', () => {
-          document.body.classList.remove('hero-dark');
-          btnLight.classList.add('active');
-          btnDark.classList.remove('active');
+      // Cards mode switcher (Split color+image vs Full-bleed image)
+      const btnSplit = document.getElementById('btnCardsSplit');
+      const btnFullBg = document.getElementById('btnCardsFullBg');
+      if (btnSplit && btnFullBg) {
+        btnSplit.addEventListener('click', () => {
+          document.body.classList.remove('cards-full-bg');
+          btnSplit.classList.add('active');
+          btnFullBg.classList.remove('active');
         });
-        btnDark.addEventListener('click', () => {
-          document.body.classList.add('hero-dark');
-          btnDark.classList.add('active');
-          btnLight.classList.remove('active');
+        btnFullBg.addEventListener('click', () => {
+          document.body.classList.add('cards-full-bg');
+          btnFullBg.classList.add('active');
+          btnSplit.classList.remove('active');
         });
       }
     })();
