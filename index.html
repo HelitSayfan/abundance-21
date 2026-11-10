@@ -540,12 +540,12 @@
     .faq summary:hover{color:#e6f3ee}
     .faq summary::-webkit-details-marker{display:none}
     .faq summary::after{
-      content:"";flex:0 0 10px;height:10px;
+      content:"";flex:0 0 9px;height:9px;
       border-inline-end:2px solid rgba(255,255,255,.75);border-bottom:2px solid rgba(255,255,255,.75);
-      transform:rotate(45deg) translateY(-2px);transition:transform .4s var(--ease),border-color .3s;
+      transform:rotate(45deg);transition:transform .35s var(--ease),border-color .3s;
     }
     .faq details[open] summary::after{
-      transform:rotate(-135deg) translateY(-2px);
+      transform:rotate(-45deg);
       border-inline-end-color:#fff;
       border-bottom-color:#fff;
     }
