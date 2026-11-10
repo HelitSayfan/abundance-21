@@ -376,50 +376,6 @@
       background:#fff;
       box-shadow:0 14px 28px -10px rgba(0,0,0,.5);
     }
-    .how.how-dark .how-theme-switch, body.how-dark .how-theme-switch{
-      background:rgba(255,255,255,.12);
-      border-color:rgba(255,255,255,.2);
-    }
-    .how.how-dark .how-theme-switch button, body.how-dark .how-theme-switch button{color:#cfe0da}
-    .how.how-dark .how-theme-switch button.active, body.how-dark .how-theme-switch button.active{
-      background:var(--peach);
-      color:var(--deeper);
-    }
-
-    /* Compact toggle for how section background */
-    .how-theme-switch{
-      display:inline-flex;
-      gap:4px;
-      background:#edf4f1;
-      padding:4px;
-      border-radius:999px;
-      margin-bottom:24px;
-      border:1px solid rgba(35,68,68,.1);
-    }
-    body.how-dark .how-theme-switch{
-      background:rgba(255,255,255,.1);
-      border-color:rgba(255,255,255,.15);
-    }
-    .how-theme-switch button{
-      border:0;
-      background:transparent;
-      color:var(--deep);
-      padding:5px 14px;
-      border-radius:999px;
-      cursor:pointer;
-      font:600 13px 'Heebo',sans-serif;
-      transition:background .25s,color .25s;
-    }
-    body.how-dark .how-theme-switch button{color:#cfe0da}
-    .how-theme-switch button.active{
-      background:#fff;
-      color:var(--deep);
-      box-shadow:0 2px 8px rgba(0,0,0,.1);
-    }
-    body.how-dark .how-theme-switch button.active{
-      background:var(--peach);
-      color:var(--deeper);
-    }
 
     /* ===== 5. WHO: למי המסע מתאים (ורוד רך עם גרדיאנטים מרחפים) ===== */
     .who{
@@ -746,15 +702,10 @@
       </div>
     </section>
 
-    <!-- 4. How it works: איך זה עובד (רקע בהיר, כרטיסים ללא מסגרות, תמונות ברדיוס גדול) -->
+    <!-- 4. How it works: איך זה עובד (כרטיסים לבנים, תמונות ברדיוס גדול) -->
     <section class="how" id="how">
       <div class="wrap">
         <div class="reveal">
-          <div class="how-theme-switch" role="region" aria-label="בחירת רקע לסקשן איך זה עובד">
-            <button type="button" id="btnHowLight" class="active">☀️ רקע בהיר ונקי</button>
-            <button type="button" id="btnHowDark">🌿 רקע ירוק-טיאל</button>
-          </div>
-          <br>
           <span class="eyebrow">התהליך</span>
           <h2>איך זה עובד?</h2>
           <p class="lead-how">בכל יום מחכה לכם תרגול קצר שמורכב משלושה חלקים:</p>
@@ -893,25 +844,6 @@
       e.preventDefault();
       lenis ? lenis.scrollTo(t, { offset: -16 }) : t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
     }));
-
-    // ---------- How Section Theme Switcher (בהיר / ירוק-טיאל) ----------
-    const btnHowLight = document.getElementById('btnHowLight');
-    const btnHowDark = document.getElementById('btnHowDark');
-    const secHow = document.getElementById('how');
-    if (btnHowLight && btnHowDark && secHow) {
-      btnHowLight.addEventListener('click', () => {
-        secHow.classList.remove('how-dark');
-        document.body.classList.remove('how-dark');
-        btnHowLight.classList.add('active');
-        btnHowDark.classList.remove('active');
-      });
-      btnHowDark.addEventListener('click', () => {
-        secHow.classList.add('how-dark');
-        document.body.classList.add('how-dark');
-        btnHowDark.classList.add('active');
-        btnHowLight.classList.remove('active');
-      });
-    }
 
     // ---------- HERO: Originkit Smooth 3D Coverflow Slideshow ----------
     (function coverflowHero() {
