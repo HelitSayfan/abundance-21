@@ -28,6 +28,9 @@
   <meta name="twitter:title" content="להעיר את השפע | מסע דיגיטלי קבוצתי של 21 ימים">
   <meta name="twitter:description" content="21 ימים של מדיטציות מוקלטות, תרגילי עומק והתבוננות יומיומית להרחבת נקודת המבט. מתחילים ב-1 בדצמבר.">
   <meta name="twitter:image" content="https://21.saydigitaldesign.com/assets/og-image.jpg">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1431,6 +1434,7 @@
             if (btnPayboxDirect) {
               btnPayboxDirect.href = PAYBOX_URL;
               btnPayboxDirect.style.display = 'inline-flex';
+              btnPayboxDirect.innerHTML = '<span>לתשלום בפייבוקס</span> <span style="font-weight:400; opacity:0.85; font-size:0.92em; letter-spacing:0.02em;">42 <small style="font-size:0.8em;">₪</small></span>';
             }
             if (successRedirectMsg) successRedirectMsg.style.display = '';
             if (successTimerNotice) successTimerNotice.style.display = '';
