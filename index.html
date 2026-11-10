@@ -749,23 +749,23 @@
     }
     .checkbox-group{
       margin-top:16px;
-      margin-bottom:20px;
+      margin-bottom:22px;
     }
     .checkbox-label{
       display:flex;
-      align-items:flex-start;
-      gap:10px;
+      align-items:center;
+      gap:14px;
       cursor:pointer;
-      font-size:14px;
+      font-size:14.5px;
       color:var(--ink);
       user-select:none;
-      line-height:1.5;
+      line-height:1.4;
     }
     .checkbox-label input[type="checkbox"]{
-      width:18px;
-      height:18px;
-      margin-top:2px;
-      accent-color:var(--teal);
+      width:19px;
+      height:19px;
+      margin:0;
+      accent-color:var(--deep);
       cursor:pointer;
       flex-shrink:0;
     }
@@ -777,6 +777,13 @@
       justify-content:center;
       cursor:pointer;
       border:none;
+      background:var(--deep);
+      color:#fff;
+      box-shadow:none !important;
+    }
+    .btn--submit:hover{
+      background:#1a3838;
+      box-shadow:none !important;
     }
     .btn--submit:disabled{
       opacity:0.75;
@@ -1036,7 +1043,7 @@
         <div class="form-group checkbox-group">
           <label class="checkbox-label">
             <input type="checkbox" id="regConsent" name="consent" required checked>
-            <span class="check-text">מאשרת קבלת מיילים בנוגע למסע</span>
+            <span class="check-text">מאשר/ת קבלת מיילים בנוגע למסע</span>
           </label>
           <span class="field-error" id="errConsent" aria-live="polite"></span>
         </div>
@@ -1045,7 +1052,7 @@
           משהו השתבש, נסי שוב
         </div>
 
-        <button type="submit" class="btn btn--peach btn--submit" id="btnSubmitReg">
+        <button type="submit" class="btn btn--submit" id="btnSubmitReg">
           <span class="btn-text">להמשך לתשלום</span>
         </button>
       </form>
@@ -1060,8 +1067,8 @@
           הפרטים שלך נקלטו בהצלחה.<br>
           <span id="successRedirectMsg"><strong>מעבירים אותך עכשיו לתשלום בפייבוקס...</strong></span>
         </p>
-        <a id="btnPayboxDirect" href="#" class="btn btn--peach" style="display:inline-flex; width:100%; justify-content:center; padding:14px 20px; font-size:17px; font-weight:700; text-decoration:none; box-sizing:border-box;">
-          מעבר לתשלום בפייבוקס (180 ₪) &larr;
+        <a id="btnPayboxDirect" href="#" class="btn btn--submit" style="display:inline-flex; width:100%; justify-content:center; padding:14px 20px; font-size:17px; font-weight:700; text-decoration:none; box-sizing:border-box;">
+          מעבר לתשלום בפייבוקס (180 ₪)
         </a>
         <p id="successTimerNotice" style="font-size:12.5px; color:var(--muted); margin-top:14px; margin-bottom:0;">מעבר אוטומטי בעוד <span id="countdownSec">3</span> שניות...</p>
       </div>
