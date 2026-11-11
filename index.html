@@ -1731,10 +1731,11 @@
       else io.observe(el);
     });
 
-    // ---------- Countdown animation (ספירה יורדת ממספר גבוה למחיר ההשקה) ----------
+    // ---------- Countdown animation (ספירה יורדת עם האטה הדרגתית וחלקה לקראת המחיר הסופי) ----------
     document.querySelectorAll('[data-count]').forEach(el => {
       const target = +el.dataset.count;
       const start = +el.dataset.start || 120;
+      el.style.display = 'inline-block';
       if (reduce) {
         el.textContent = target;
         return;
@@ -1743,17 +1744,23 @@
       new IntersectionObserver(([e], o) => {
         if (!e.isIntersecting) return;
         o.disconnect();
-        const duration = 1400;
+        const duration = 2100;
         const startTime = performance.now();
         (function tick(now) {
           const progress = Math.min(1, (now - startTime) / duration);
-          const ease = 1 - Math.pow(1 - progress, 3);
+          const ease = 1 - Math.pow(1 - progress, 3.2);
           const current = Math.round(start - (start - target) * ease);
           el.textContent = current;
           if (progress < 1) {
             requestAnimationFrame(tick);
           } else {
             el.textContent = target;
+            if (el.animate) {
+              el.animate([
+                { transform: 'scale(1.14)' },
+                { transform: 'scale(1)' }
+              ], { duration: 450, easing: 'cubic-bezier(.16,1,.3,1)' });
+            }
           }
         })(startTime);
       }, { threshold: .3 }).observe(el);
