@@ -958,14 +958,19 @@
         align-items:flex-end;
         justify-content:center;
         background:rgba(12,24,25,.75);
+        overflow:hidden !important;
+        touch-action:none;
       }
       .modal-card{
         margin:0;
         width:100%;
         max-width:100% !important;
-        max-height:92dvh;
-        overflow-y:auto;
-        -webkit-overflow-scrolling:touch;
+        max-height:88vh;
+        max-height:88dvh;
+        overflow-y:auto !important;
+        -webkit-overflow-scrolling:touch !important;
+        touch-action:pan-y !important;
+        overscroll-behavior:contain;
         padding:14px 20px max(24px, env(safe-area-inset-bottom, 24px));
         border-radius:26px 26px 0 0;
         transform:translateY(100%);
@@ -974,7 +979,8 @@
       }
       #a11yModal .modal-card, #privacyModal .modal-card{
         max-width:100% !important;
-        max-height:92dvh;
+        max-height:88vh;
+        max-height:88dvh;
       }
       .modal-overlay.active .modal-card{
         transform:translateY(0);
@@ -1276,8 +1282,8 @@
   </footer>
 
   <!-- Modal: הרשמה ותשלום -->
-  <div class="modal-overlay" id="regModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-overlay" id="regModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="modalClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1348,8 +1354,8 @@
   </div>
 
   <!-- Modal: הצהרת נגישות -->
-  <div class="modal-overlay" id="a11yModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="a11yTitle">
+  <div class="modal-overlay" id="a11yModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="a11yTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="a11yClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1380,8 +1386,8 @@
   </div>
 
   <!-- Modal: מדיניות פרטיות -->
-  <div class="modal-overlay" id="privacyModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal-overlay" id="privacyModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="privacyClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1741,7 +1747,11 @@
     // ---------- Smooth scroll (Lenis) ----------
     let lenis = null;
     if (!reduce && window.Lenis) {
-      lenis = new Lenis({ lerp: .1, smoothWheel: true });
+      lenis = new Lenis({
+        lerp: .1,
+        smoothWheel: true,
+        prevent: (node) => node && node.closest && (node.closest('.modal-overlay') || node.closest('.modal-card') || node.hasAttribute('data-lenis-prevent'))
+      });
       window.lenis = lenis;
       const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
       requestAnimationFrame(raf);
