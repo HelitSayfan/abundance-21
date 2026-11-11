@@ -722,6 +722,10 @@
       width:100%;
       max-width:460px;
       min-width:0;
+      margin:auto;
+      max-height:calc(100vh - 48px);
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
       border-radius:26px;
       padding:clamp(28px,5vw,38px) clamp(24px,5vw,34px);
       position:relative;
@@ -732,8 +736,28 @@
       word-break:break-word;
       overflow-wrap:anywhere;
     }
-    #a11yModal .modal-card{
+    #a11yModal .modal-card, #privacyModal .modal-card{
       max-width:540px;
+    }
+    .modal-sheet-handle{
+      display:none;
+    }
+    .btn-cancel-modal{
+      display:block;
+      width:100%;
+      background:none;
+      border:0;
+      color:var(--muted);
+      font:500 14.5px 'Heebo',sans-serif;
+      padding:10px 14px;
+      margin-top:6px;
+      cursor:pointer;
+      text-align:center;
+      transition:color .2s;
+    }
+    .btn-cancel-modal:hover{
+      color:var(--deep);
+      text-decoration:underline;
     }
     .modal-overlay.active .modal-card{
       transform:scale(1) translateY(0);
@@ -928,29 +952,53 @@
         justify-content:center;
         width:100%;
       }
-      /* Mobile Modal Polish: fully fits on screen, scrollable, accessible */
+      /* Mobile Modal: Bottom Sheet Slider (עולה חלק מלמטה עם גלילה פנימית מלאה) */
       .modal-overlay{
-        padding:max(12px, env(safe-area-inset-top, 12px)) 12px max(12px, env(safe-area-inset-bottom, 12px));
-        align-items:flex-start;
+        padding:0;
+        align-items:flex-end;
+        justify-content:center;
+        background:rgba(12,24,25,.75);
       }
       .modal-card{
-        margin:auto;
+        margin:0;
         width:100%;
         max-width:100% !important;
-        max-height:calc(100dvh - 24px);
+        max-height:92dvh;
         overflow-y:auto;
         -webkit-overflow-scrolling:touch;
-        padding:22px 18px 20px;
-        border-radius:20px;
+        padding:14px 20px max(24px, env(safe-area-inset-bottom, 24px));
+        border-radius:26px 26px 0 0;
+        transform:translateY(100%);
+        transition:transform .38s cubic-bezier(.16,1,.3,1);
+        box-shadow:0 -16px 50px rgba(0,0,0,.45);
       }
-      #a11yModal .modal-card{
+      #a11yModal .modal-card, #privacyModal .modal-card{
         max-width:100% !important;
+        max-height:92dvh;
+      }
+      .modal-overlay.active .modal-card{
+        transform:translateY(0);
+      }
+      .modal-sheet-handle{
+        display:block;
+        width:42px;
+        height:4.5px;
+        background:rgba(35,68,68,0.24);
+        border-radius:3px;
+        margin:0 auto 14px;
+        flex-shrink:0;
       }
       .modal-close{
-        top:12px;
-        left:12px;
-        width:32px;
-        height:32px;
+        top:14px;
+        left:14px;
+        width:36px;
+        height:36px;
+        background:rgba(35,68,68,.08);
+      }
+      .btn-cancel-modal{
+        padding:13px 14px;
+        font-size:15px;
+        margin-top:6px;
       }
       .modal-header h3{
         font-size:22px;
@@ -1210,6 +1258,8 @@
         </a>
         <span class="footer-dot" aria-hidden="true">·</span>
         <button type="button" class="footer-a11y-btn" id="btnOpenA11y" aria-haspopup="dialog">הצהרת נגישות</button>
+        <span class="footer-dot" aria-hidden="true">·</span>
+        <button type="button" class="footer-a11y-btn" id="btnOpenPrivacy" aria-haspopup="dialog">מדיניות פרטיות</button>
       </div>
       <div class="footer-group footer-contact">
         <a class="footer-link footer-link--wa" href="https://api.whatsapp.com/send?phone=972506536444&text=%D7%94%D7%99%D7%99%20%D7%94%D7%9C%D7%99%D7%AA%2C%20%D7%A4%D7%95%D7%A0%D7%94%20%D7%91%D7%A0%D7%95%D7%92%D7%A2%20%D7%9C%D7%9E%D7%A1%D7%A2%20%D7%94%D7%A9%D7%A4%D7%A2" target="_blank" rel="noopener noreferrer">
@@ -1228,7 +1278,8 @@
   <!-- Modal: הרשמה ותשלום -->
   <div class="modal-overlay" id="regModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button type="button" class="modal-close" id="modalClose" aria-label="סגירה">
+      <div class="modal-sheet-handle" aria-hidden="true"></div>
+      <button type="button" class="modal-close" id="modalClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="modal-header" id="modalHeader">
@@ -1260,6 +1311,9 @@
             <span class="check-text">מאשר/ת קבלת תכנים, תזכורות ועדכונים למייל</span>
           </label>
           <span class="field-error" id="errConsent" aria-live="polite"></span>
+          <span style="font-size:12px; color:var(--muted); display:block; margin-top:5px; line-height:1.4;">
+            הפרטים נשמרים בסודיות מלאה. לקריאת <button type="button" id="btnPrivacyFromReg" style="background:none; border:none; padding:0; color:var(--teal); font:inherit; text-decoration:underline; cursor:pointer;">מדיניות הפרטיות</button>
+          </span>
         </div>
 
         <div class="form-global-error" id="formGlobalError" role="alert" style="display:none; margin-bottom:14px; padding:10px 14px; border-radius:10px; background:rgba(214,80,60,.08); border:1px solid rgba(214,80,60,.25); color:#a8281a; font-size:14px; line-height:1.4; text-align:center;">
@@ -1269,6 +1323,8 @@
         <button type="submit" class="btn btn--submit" id="btnSubmitReg">
           <span class="btn-text">להמשך לתשלום</span>
         </button>
+
+        <button type="button" class="btn-cancel-modal" id="btnCancelReg" data-close-modal>ביטול וחזרה לעמוד</button>
       </form>
 
       <!-- מסך תודה והפניה לפייבוקס (אופציה 2) -->
@@ -1286,6 +1342,7 @@
           <span style="font-weight:400; opacity:0.85; font-size:0.92em; letter-spacing:0.02em;">42 <small style="font-size:0.8em;">₪</small></span>
         </a>
         <p id="successTimerNotice" style="font-size:12.5px; color:var(--muted); margin-top:14px; margin-bottom:0;">מעבר אוטומטי בעוד <span id="countdownSec">3</span> שניות...</p>
+        <button type="button" class="btn-cancel-modal" data-close-modal style="margin-top:12px;">סגירה</button>
       </div>
     </div>
   </div>
@@ -1293,7 +1350,8 @@
   <!-- Modal: הצהרת נגישות -->
   <div class="modal-overlay" id="a11yModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="a11yTitle">
-      <button type="button" class="modal-close" id="a11yClose" aria-label="סגירה">
+      <div class="modal-sheet-handle" aria-hidden="true"></div>
+      <button type="button" class="modal-close" id="a11yClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       <div class="modal-header" style="margin-bottom:14px;">
@@ -1310,12 +1368,58 @@
           <li style="margin-bottom:4px;">תמיכה בהעדפת הפחתת תנועה (<span dir="ltr">Reduced Motion</span>).</li>
           <li style="margin-bottom:4px;">טפסים מונגשים עם תוויות מפורשות והודעות שגיאה קוליות וטקסטואליות.</li>
         </ul>
-        <div style="background:rgba(35,68,68,0.04); border-radius:12px; padding:12px 14px; border:1px solid rgba(35,68,68,0.1);">
+        <div style="background:rgba(35,68,68,0.04); border-radius:12px; padding:12px 14px; border:1px solid rgba(35,68,68,0.1); margin-bottom:16px;">
           <p style="font-weight:700; margin-bottom:4px; font-size:14px;">רכזת נגישות ופניות:</p>
           <p style="margin-bottom:0; font-size:13.5px;">
             הלית סייפן אלטמן · דוא״ל: <a href="mailto:helitsayfan@gmail.com" style="color:var(--teal); font-weight:600; text-decoration:underline;">helitsayfan@gmail.com</a> · טלפון / וואטסאפ: <a href="https://api.whatsapp.com/send?phone=972506536444" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:600; text-decoration:underline;">050-6536444</a>
           </p>
         </div>
+        <button type="button" class="btn btn--submit" data-close-modal style="width:100%; justify-content:center; background:var(--deep); color:#fff; font-size:15px; padding:12px 20px;">הבנתי, סגירה</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: מדיניות פרטיות -->
+  <div class="modal-overlay" id="privacyModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+      <div class="modal-sheet-handle" aria-hidden="true"></div>
+      <button type="button" class="modal-close" id="privacyClose" data-close-modal aria-label="סגירה">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-header" style="margin-bottom:14px;">
+        <h3 id="privacyTitle" style="font-size:24px; font-weight:800; color:var(--deep); margin-bottom:4px;">מדיניות פרטיות</h3>
+        <p style="color:var(--muted); font-size:14px; margin-bottom:0;">הפרטיות שלכם חשובה לנו. פירוט על המידע הנאסף והשימוש בו</p>
+      </div>
+      <div style="font-size:14.5px; line-height:1.75; color:var(--deep); text-align:right;">
+        <p style="margin-bottom:12px;">אנו ב-<strong>Say Digital Design</strong> (הלית סייפן אלטמן) מכבדים את פרטיותכם ומחויבים להגן על המידע האישי שלכם בהתאם להוראות חוק הגנת הפרטיות, התשמ"א-1981 ותקנותיו.</p>
+        
+        <p style="font-weight:700; margin-bottom:3px;">1. איסוף המידע</p>
+        <p style="margin-bottom:12px;">המידע שנאסף באתר (שם מלא, כתובת אימייל ומספר טלפון נייד) נמסר על ידכם ביוזמתכם ובהסכמתכם המלאה בעת מילוי טופס ההרשמה למסע "להעיר את השפע". מסירת המידע אינה חובה חוקית, אך היא נדרשת כדי שנוכל לחבר אתכם למסע.</p>
+
+        <p style="font-weight:700; margin-bottom:3px;">2. מטרות השימוש במידע</p>
+        <ul style="padding-inline-start:22px; margin-bottom:12px;">
+          <li>צירוף לקבוצת הוואטסאפ של המסע ושליחת קישורי המדיטציות והתרגילים היומיים.</li>
+          <li>יצירת קשר, אימות תשלום ומשלוח קבלות או חשבוניות.</li>
+          <li>שליחת תכנים, תזכורות ועדכונים למייל (רק למי שאישר/ה זאת במפורש, וניתן להסיר את עצמכם בכל עת בלחיצה אחת).</li>
+        </ul>
+
+        <p style="font-weight:700; margin-bottom:3px;">3. שמירה על סודיות ואי-העברה לצד שלישי</p>
+        <p style="margin-bottom:12px;">אנו לא מוכרים, לא משכירים ולא מעבירים את המידע האישי שלכם לצדדים שלישיים לצרכי שיווק או פרסום שלהם. המידע משמש אך ורק ספקי שירות טכנולוגיים לצורך תפעול המסע בלבד (כגון מערכת הדיוור ו-Google Workspace).</p>
+
+        <p style="font-weight:700; margin-bottom:3px;">4. אבטחת מידע ותשלומים</p>
+        <p style="margin-bottom:12px;">האתר מאובטח בפרוטוקול תקשורת מוצפן (SSL/HTTPS). <strong>פרטי אמצעי תשלום אינם נשמרים באתר כלל</strong> — תהליך התשלום מתבצע ישירות באפליקציית פייבוקס (PayBox) המאובטחת לפי תקני האבטחה המחמירים ביותר.</p>
+
+        <p style="font-weight:700; margin-bottom:3px;">5. זכות עיון, תיקון ומחיקת מידע</p>
+        <p style="margin-bottom:14px;">כל משתתף/ת רשאי/ת לעיין במידע שנשמר אודותיו, לבקש לתקנו או לדרוש את מחיקתו המוחלטת ממאגרינו בכל עת, בפנייה ישירה במייל או בוואטסאפ.</p>
+
+        <div style="background:rgba(35,68,68,0.04); border-radius:12px; padding:12px 14px; border:1px solid rgba(35,68,68,0.1); margin-bottom:16px;">
+          <p style="font-weight:700; margin-bottom:4px; font-size:14px;">פניות בנושאי פרטיות ואבטחת מידע:</p>
+          <p style="margin-bottom:0; font-size:13.5px;">
+            הלית סייפן אלטמן · דוא״ל: <a href="mailto:helitsayfan@gmail.com" style="color:var(--teal); font-weight:600; text-decoration:underline;">helitsayfan@gmail.com</a> · וואטסאפ: <a href="https://api.whatsapp.com/send?phone=972506536444" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:600; text-decoration:underline;">050-6536444</a>
+          </p>
+        </div>
+
+        <button type="button" class="btn btn--submit" data-close-modal style="width:100%; justify-content:center; background:var(--deep); color:#fff; font-size:15px; padding:12px 20px;">הבנתי, סגירה</button>
       </div>
     </div>
   </div>
@@ -1331,12 +1435,17 @@
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-    // ---------- Registration Modal Controller ----------
+    // ---------- Modal Controllers (Registration, Accessibility, Privacy) ----------
     const modal = document.getElementById('regModal');
     const modalClose = document.getElementById('modalClose');
     const a11yModal = document.getElementById('a11yModal');
     const a11yClose = document.getElementById('a11yClose');
     const btnOpenA11y = document.getElementById('btnOpenA11y');
+    const privacyModal = document.getElementById('privacyModal');
+    const privacyClose = document.getElementById('privacyClose');
+    const btnOpenPrivacy = document.getElementById('btnOpenPrivacy');
+    const btnPrivacyFromReg = document.getElementById('btnPrivacyFromReg');
+
     const modalHeader = document.getElementById('modalHeader');
     const modalSuccess = document.getElementById('modalSuccess');
     const successName = document.getElementById('successName');
@@ -1364,7 +1473,10 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       if (lenis) lenis.stop();
-      setTimeout(() => inputName && inputName.focus(), 150);
+      // Only auto-focus on desktop so mobile soft keyboard doesn't abruptly pop up!
+      if (window.innerWidth > 768) {
+        setTimeout(() => inputName && inputName.focus(), 150);
+      }
     }
 
     function closeModal() {
@@ -1390,7 +1502,7 @@
       a11yModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       if (lenis) lenis.stop();
-      if (a11yClose) a11yClose.focus();
+      if (window.innerWidth > 768 && a11yClose) a11yClose.focus();
     }
 
     function closeA11yModal() {
@@ -1401,6 +1513,29 @@
       if (lenis) lenis.start();
     }
 
+    function openPrivacyModal() {
+      if (!privacyModal) return;
+      privacyModal.classList.add('active');
+      privacyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (lenis) lenis.stop();
+      if (window.innerWidth > 768 && privacyClose) privacyClose.focus();
+    }
+
+    function closePrivacyModal() {
+      if (!privacyModal) return;
+      privacyModal.classList.remove('active');
+      privacyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lenis) lenis.start();
+    }
+
+    function closeAllModals() {
+      closeModal();
+      closeA11yModal();
+      closePrivacyModal();
+    }
+
     if (btnOpenA11y) btnOpenA11y.addEventListener('click', openA11yModal);
     if (a11yClose) a11yClose.addEventListener('click', closeA11yModal);
     if (a11yModal) {
@@ -1409,6 +1544,22 @@
       });
     }
     if (new URLSearchParams(window.location.search).has('a11y')) openA11yModal();
+
+    if (btnOpenPrivacy) btnOpenPrivacy.addEventListener('click', openPrivacyModal);
+    if (privacyClose) privacyClose.addEventListener('click', closePrivacyModal);
+    if (privacyModal) {
+      privacyModal.addEventListener('click', e => {
+        if (e.target === privacyModal) closePrivacyModal();
+      });
+    }
+    if (btnPrivacyFromReg) {
+      btnPrivacyFromReg.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+        openPrivacyModal();
+      });
+    }
+    if (new URLSearchParams(window.location.search).has('privacy')) openPrivacyModal();
 
     document.querySelectorAll('[data-open-modal]').forEach(b => {
       b.addEventListener('click', e => {
@@ -1426,10 +1577,13 @@
       });
     }
 
+    document.querySelectorAll('[data-close-modal]').forEach(b => {
+      b.addEventListener('click', closeAllModals);
+    });
+
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        if (modal && modal.classList.contains('active')) closeModal();
-        if (a11yModal && a11yModal.classList.contains('active')) closeA11yModal();
+        closeAllModals();
       }
     });
 
