@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>להעיר את השפע | מסע דיגיטלי קבוצתי של 21 ימים</title>
   <meta name="description" content="21 ימים של מדיטציות, תרגילי התבוננות ותרגול יומי, שיעזרו לכם להרחיב את נקודת המבט, לזהות אפשרויות חדשות ולפתוח מקום לרצונות ולעשייה.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#234444">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -73,6 +75,8 @@
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     :root{
+      color-scheme: light !important;
+      supported-color-schemes: light;
       --deep:#234444; --deeper:#1d3838; --teal:#375c5c;
       --sage:#9dcac2; --mint:#b7daca; --mist:#e7f0ec;
       --light-green:#edf4f1; --soft-green:#dbeef3;
@@ -1403,24 +1407,28 @@
       </form>
 
       <!-- מסך תודה והפניה לפייבוקס (אופציה 2) -->
-      <div class="modal-success" id="modalSuccess" style="display:none; text-align:center; padding:12px 6px;">
-        <div style="width:64px; height:64px; border-radius:50%; background:rgba(247,194,168,.35); color:var(--deep); display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <div class="modal-success" id="modalSuccess" style="display:none; text-align:center; padding:10px 4px;">
+        <div style="width:56px; height:56px; border-radius:50%; background:rgba(247,194,168,.35); color:var(--deep); display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
-        <h3 style="font-size:26px; font-weight:800; color:var(--deep); margin-bottom:8px; line-height:1.2;">איזה כיף, <span id="successName"></span>! ✨</h3>
-        <p style="color:var(--muted); font-size:15.5px; line-height:1.6; margin-bottom:20px;">
+        <h3 style="font-size:24px; font-weight:800; color:var(--deep); margin-bottom:6px; line-height:1.2;">איזה כיף, <span id="successName"></span>! ✨</h3>
+        <p style="color:var(--muted); font-size:14.5px; line-height:1.5; margin-bottom:16px;">
           הפרטים שלך נקלטו בהצלחה.<br>
-          <span id="successRedirectMsg">להבטחת מקומך, לחצי למטה להשלמת התשלום בפייבוקס:</span>
+          <span id="successRedirectMsg">להשלמת ההצטרפות (42 ₪), בחרי איך נוח לך להעביר:</span>
         </p>
-        <a id="btnPayboxDirect" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--submit" style="display:inline-flex; width:100%; justify-content:center; align-items:center; gap:8px; padding:14px 20px; font-size:16px; font-weight:700; text-decoration:none; box-sizing:border-box; background:var(--deep); color:#fff; box-shadow:none !important; white-space:nowrap !important;">
-          <span>מעבר לתשלום בפייבוקס</span>
+        <a id="btnPayboxDirect" href="#" target="_blank" rel="noopener noreferrer" class="btn btn--submit" style="display:inline-flex; width:100%; justify-content:center; align-items:center; gap:8px; padding:13px 18px; font-size:15.5px; font-weight:700; text-decoration:none; box-sizing:border-box; background:var(--deep); color:#fff; box-shadow:none !important; white-space:nowrap !important; margin-bottom:12px;">
+          <span>לתשלום בקבוצת פייבוקס</span>
           <span style="font-weight:400; opacity:0.85; font-size:0.92em; letter-spacing:0.02em;">42 <small style="font-size:0.8em;">₪</small></span>
         </a>
-        <div style="margin-top:16px; padding:10px 14px; border-radius:10px; background:rgba(35,68,68,0.06); font-size:12.5px; line-height:1.5; color:var(--deep); text-align:right;">
-          💡 <strong>נפתח מתוך פייסבוק או אינסטגרם?</strong><br>
-          אם פייבוקס לא נפתח ישירות בקבוצה, לחצי על 3 הנקודות למעלה (•••) ובחרי <strong>״פתח בדפדפן״</strong> (Safari או Chrome).
+        <div style="padding:12px 14px; border-radius:14px; background:rgba(35,68,68,0.05); border:1px dashed rgba(35,68,68,0.22); font-size:13px; line-height:1.55; color:var(--deep); text-align:center;">
+          <div style="font-weight:700; margin-bottom:4px; font-size:13px; color:var(--teal);">או העברה ישירה ב-Bit / PayBox:</div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:4px;">
+            <a href="tel:0506536444" style="font-weight:800; font-size:17px; letter-spacing:0.05em; color:var(--deep); text-decoration:none; direction:ltr; unicode-bidi:isolate;">050-6536444</a>
+            <span style="font-size:12.5px; color:var(--muted);">(הלית סייפן)</span>
+          </div>
+          <div style="font-size:11.5px; color:var(--muted); margin-top:4px;">סכום: 42 ₪ · נזהה את התשלום לפי השם שלך ונאשר בוואטסאפ</div>
         </div>
-        <button type="button" class="btn-cancel-modal" data-close-modal style="margin-top:14px;">סגירה וחזרה לאתר</button>
+        <button type="button" class="btn-cancel-modal" data-close-modal style="margin-top:12px;">סגירה וחזרה לאתר</button>
       </div>
     </div>
   </div>
