@@ -940,11 +940,64 @@
       .coverflow-viewport{
         margin-top:16px;
       }
+      /* Mobile Join & Pricing Section (קומפקטי ומשתלב ב-View אחד ללא גלילה) */
+      .join{
+        padding-block:16px 20px;
+      }
+      .join .wrap{
+        padding-inline:14px;
+      }
+      .join-card{
+        padding:18px 16px;
+        gap:14px;
+        border-radius:24px;
+      }
+      .join-card h2{
+        font-size:23px;
+        margin-bottom:3px;
+        line-height:1.2;
+      }
+      .join-card .tag{
+        font-size:13.5px;
+        line-height:1.4;
+      }
+      .checks{
+        margin-top:10px;
+        gap:7px;
+      }
+      .checks li{
+        font-size:13.5px;
+        line-height:1.3;
+        gap:8px;
+      }
+      .checks svg{
+        width:16px;
+        height:16px;
+        flex:0 0 16px;
+        margin-top:2px;
+      }
+      .price-side{
+        padding:0;
+      }
+      .price-side .date{
+        font-size:13px;
+        margin-bottom:2px;
+        white-space:nowrap !important;
+      }
+      .price-side .label{
+        font-size:12.5px;
+        margin-bottom:0;
+      }
+      .price-side .price{
+        font-size:clamp(44px, 11vw, 52px);
+        margin:2px 0 8px;
+        line-height:1;
+      }
       .price-side .btn{
         max-width:100%;
         width:100%;
-        padding:12px 18px;
-        font-size:16.5px;
+        padding:11px 18px;
+        font-size:16px;
         white-space:nowrap !important;
       }
       .footer-container{
@@ -1769,7 +1822,8 @@
       const t = document.querySelector(id);
       if (!t) return;
       e.preventDefault();
-      lenis ? lenis.scrollTo(t, { offset: -16 }) : t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      const navOffset = window.innerWidth <= 768 ? -56 : -16;
+      lenis ? lenis.scrollTo(t, { offset: navOffset }) : t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
     }));
 
     // ---------- HERO: Originkit Smooth 3D Coverflow Slideshow ----------
