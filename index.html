@@ -841,9 +841,12 @@
       color:#d94b4b;
       font-size:12.5px;
       font-weight:500;
-      min-height:16px;
-      margin-top:4px;
+      min-height:0;
+      margin-top:2px;
       line-height:1.3;
+    }
+    .field-error:empty{
+      display:none;
     }
     .checkbox-group{
       margin-top:16px;
@@ -959,77 +962,95 @@
         align-items:flex-end;
         justify-content:center;
         background:rgba(12,24,25,.75);
+        overflow:hidden !important;
+        touch-action:none;
       }
       .modal-card{
         margin:0;
         width:100%;
         max-width:100% !important;
-        max-height:92dvh;
-        overflow-y:auto;
-        -webkit-overflow-scrolling:touch;
-        padding:14px 20px max(24px, env(safe-area-inset-bottom, 24px));
-        border-radius:26px 26px 0 0;
+        max-height:86vh;
+        max-height:86dvh;
+        overflow-y:auto !important;
+        -webkit-overflow-scrolling:touch !important;
+        touch-action:pan-y !important;
+        overscroll-behavior:contain;
+        padding:12px 18px max(18px, env(safe-area-inset-bottom, 18px));
+        border-radius:24px 24px 0 0;
         transform:translateY(100%);
         transition:transform .38s cubic-bezier(.16,1,.3,1);
         box-shadow:0 -16px 50px rgba(0,0,0,.45);
       }
       #a11yModal .modal-card, #privacyModal .modal-card{
         max-width:100% !important;
-        max-height:92dvh;
+        max-height:86vh;
+        max-height:86dvh;
       }
       .modal-overlay.active .modal-card{
         transform:translateY(0);
       }
       .modal-sheet-handle{
         display:block;
-        width:42px;
-        height:4.5px;
-        background:rgba(35,68,68,0.24);
+        width:38px;
+        height:4px;
+        background:rgba(35,68,68,0.2);
         border-radius:3px;
-        margin:0 auto 14px;
+        margin:0 auto 10px;
         flex-shrink:0;
       }
       .modal-close{
-        top:14px;
-        left:14px;
-        width:36px;
-        height:36px;
+        top:12px;
+        left:12px;
+        width:34px;
+        height:34px;
         background:rgba(35,68,68,.08);
       }
       .btn-cancel-modal{
-        padding:13px 14px;
-        font-size:15px;
-        margin-top:6px;
+        padding:9px 12px;
+        font-size:13.5px;
+        margin-top:4px;
       }
       .modal-header h3{
-        font-size:22px;
-        margin-bottom:4px;
+        font-size:20px;
+        margin-bottom:2px;
       }
       .modal-header p{
-        font-size:13.5px;
-        margin-bottom:14px;
-      }
-      .form-group{
+        font-size:13px;
         margin-bottom:10px;
       }
+      .form-group{
+        margin-bottom:7px;
+      }
       .form-group label{
-        font-size:13px;
-        margin-bottom:4px;
+        font-size:12.5px;
+        margin-bottom:3px;
       }
       .form-group input[type="text"],
       .form-group input[type="email"],
       .form-group input[type="tel"]{
-        padding:10px 12px;
+        padding:9px 12px;
         font-size:15px;
-        border-radius:10px;
+        border-radius:9px;
       }
-      .check-label{
-        margin:6px 0 14px;
-        gap:30px;
+      .field-error{
+        min-height:0;
+        margin-top:2px;
+        font-size:11.5px;
+      }
+      .field-error:empty{
+        display:none;
+      }
+      .checkbox-group{
+        margin-top:8px;
+        margin-bottom:12px;
+      }
+      .checkbox-label{
+        font-size:13px;
+        gap:24px;
       }
       .btn--submit{
-        padding:12px 20px;
-        font-size:16px;
+        padding:11px 18px;
+        font-size:15.5px;
         width:100%;
       }
     }
@@ -1277,8 +1298,8 @@
   </footer>
 
   <!-- Modal: הרשמה ותשלום -->
-  <div class="modal-overlay" id="regModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-overlay" id="regModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="modalClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1352,8 +1373,8 @@
   </div>
 
   <!-- Modal: הצהרת נגישות -->
-  <div class="modal-overlay" id="a11yModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="a11yTitle">
+  <div class="modal-overlay" id="a11yModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="a11yTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="a11yClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1384,8 +1405,8 @@
   </div>
 
   <!-- Modal: מדיניות פרטיות -->
-  <div class="modal-overlay" id="privacyModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal-overlay" id="privacyModal" data-lenis-prevent aria-hidden="true">
+    <div class="modal-card" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
       <div class="modal-sheet-handle" aria-hidden="true"></div>
       <button type="button" class="modal-close" id="privacyClose" data-close-modal aria-label="סגירה">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -1477,6 +1498,8 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       if (lenis) lenis.stop();
+      const card = modal.querySelector('.modal-card');
+      if (card) card.scrollTop = 0;
       // Only auto-focus on desktop so mobile soft keyboard doesn't abruptly pop up!
       if (window.innerWidth > 768) {
         setTimeout(() => inputName && inputName.focus(), 150);
@@ -1731,7 +1754,11 @@
     // ---------- Smooth scroll (Lenis) ----------
     let lenis = null;
     if (!reduce && window.Lenis) {
-      lenis = new Lenis({ lerp: .1, smoothWheel: true });
+      lenis = new Lenis({
+        lerp: .1,
+        smoothWheel: true,
+        prevent: (node) => node && node.closest && (node.closest('.modal-overlay') || node.closest('.modal-card') || node.hasAttribute('data-lenis-prevent'))
+      });
       window.lenis = lenis;
       const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
       requestAnimationFrame(raf);
