@@ -1,0 +1,1799 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>איך היה המסע שלכם ב״להעיר את השפע״? | שאלון סיום</title>
+  <meta name="description" content="שאלון משוב קצר לסיום המסע להעיר את השפע — 21 ימים עם הלית סייפן אלטמן.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#234444">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:title" content="איך היה המסע שלכם ב״להעיר את השפע״?">
+  <meta property="og:description" content="שאלון משוב קצר (3–4 דקות) לסיום 21 הימים של המסע. אפשר למלא גם בעילום שם.">
+  <meta property="og:image" content="https://21.saydigitaldesign.com/assets/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    :root {
+      color-scheme: light !important;
+      --deep: #234444;
+      --deeper: #1d3838;
+      --teal: #375c5c;
+      --sage: #9dcac2;
+      --mint: #b7daca;
+      --mist: #e7f0ec;
+      --light-green: #edf4f1;
+      --peach: #f7c2a8;
+      --peach-soft: #fde9de;
+      --coral: #ee9b84;
+      --pink: #f2b5c2;
+      --blush: #fbe3e6;
+      --paper: #fffdfb;
+      --ink: #1f3b3b;
+      --muted: #526b6b;
+      --error: #b83227;
+      --error-bg: #fdf2f1;
+      --radius: 22px;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-block: 116px 140px;
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fcf0ec 0%, #fdeae2 50%, #fcedea 100%);
+      min-height: 100dvh;
+      line-height: 1.65;
+      font-size: 1rem;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: clip;
+    }
+
+    /* Ambient floating blobs (matching the "who" section on index.html) */
+    .bg-blobs {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: .62;
+      pointer-events: none;
+    }
+
+    .blob--pink {
+      background: var(--pink);
+      width: clamp(280px, 38vw, 440px);
+      height: clamp(280px, 38vw, 440px);
+      top: -60px;
+      left: -80px;
+      animation: blobFloat 14s ease-in-out infinite alternate;
+    }
+
+    .blob--peach {
+      background: var(--peach);
+      width: clamp(260px, 34vw, 400px);
+      height: clamp(260px, 34vw, 400px);
+      bottom: -70px;
+      right: -70px;
+      animation: blobFloatRev 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobFloat {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(24px, -20px, 0) scale(1.08); }
+      100% { transform: translate3d(-18px, 16px, 0) scale(0.95); }
+    }
+
+    @keyframes blobFloatRev {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-26px, 22px, 0) scale(1.1); }
+      100% { transform: translate3d(20px, -14px, 0) scale(0.92); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob--pink,
+      .blob--peach {
+        animation: none;
+      }
+    }
+
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: -120px;
+      inset-inline-start: 16px;
+      z-index: 9999;
+      background: var(--deep);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 0 0 12px 12px;
+      font: 600 0.95rem 'Heebo', sans-serif;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+      transition: inset-block-start .25s ease;
+    }
+
+    .skip-link:focus {
+      inset-block-start: 0;
+    }
+
+    /* Main container */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 740px;
+      margin-inline: auto;
+      padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 28px) 64px;
+    }
+
+    /* Header card */
+    .intro-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(237, 244, 241, .86));
+      border: 1px solid rgba(35, 68, 68, .1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-block-end: 20px;
+      box-shadow: 0 20px 48px -26px rgba(31, 59, 59, .24);
+    }
+
+    .intro-hero {
+      position: relative;
+      height: clamp(165px, 28vw, 245px);
+      overflow: hidden;
+      background: #c7dfda;
+    }
+
+    .intro-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 44%;
+      display: block;
+    }
+
+    .intro-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 54%;
+      background: linear-gradient(180deg, rgba(255, 253, 251, 0) 0%, rgba(255, 255, 255, .96) 100%);
+      pointer-events: none;
+    }
+
+    .intro-body {
+      padding: clamp(16px, 3vw, 26px) clamp(22px, 4.5vw, 38px) 18px;
+      margin-block-start: -22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--teal);
+      margin-block-end: 10px;
+    }
+
+    .intro-card h1 {
+      font-size: clamp(1.7rem, 4.4vw, 2.45rem);
+      font-weight: 400;
+      line-height: 1.24;
+      letter-spacing: -.02em;
+      color: var(--teal);
+      margin-block-end: 14px;
+      text-wrap: balance;
+    }
+
+    .intro-card h1 .title-emphasis {
+      font-weight: 800;
+      color: var(--deep);
+      white-space: nowrap;
+    }
+
+    .intro-card p {
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+
+    .intro-card p + p {
+      margin-block-start: 10px;
+    }
+
+    .intro-meta {
+      margin-block-start: 16px;
+      padding-block-start: 14px;
+      border-top: 1px solid rgba(35, 68, 68, .1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .intro-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      display: inline-block;
+      color: var(--teal);
+    }
+
+    .error-msg .icon {
+      color: var(--error);
+    }
+
+    .success-badge .icon {
+      width: 28px;
+      height: 28px;
+      color: var(--deep);
+    }
+
+    /* Step progress (sticky negative) */
+    .stepper {
+      position: sticky;
+      top: 12px;
+      z-index: 30;
+      margin-block-end: 20px;
+      background: rgba(35, 68, 68, .94);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 18px;
+      padding: 14px 18px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 30px -14px rgba(18, 35, 36, .5);
+    }
+
+    .stepper-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-block-end: 10px;
+    }
+
+    .stepper-item {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, .62);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 500;
+      transition: color .25s ease;
+    }
+
+    .stepper-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .15);
+      color: var(--mist);
+      flex-shrink: 0;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .stepper-item[aria-current="step"] {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .stepper-item[aria-current="step"] .stepper-num {
+      background: #fff;
+      color: var(--deep);
+    }
+
+    .stepper-item.is-done {
+      color: var(--mint);
+    }
+
+    .stepper-item.is-done .stepper-num {
+      background: var(--sage);
+      color: var(--deeper);
+    }
+
+    .stepper-bar {
+      width: 100%;
+      height: 6px;
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .18);
+      display: block;
+    }
+
+    .stepper-bar::-webkit-progress-bar {
+      background: rgba(255, 255, 255, .18);
+      border-radius: 999px;
+    }
+
+    .stepper-bar::-webkit-progress-value {
+      background: linear-gradient(90deg, var(--sage), var(--mint));
+      border-radius: 999px;
+      transition: width .35s var(--ease);
+    }
+
+    .stepper-bar::-moz-progress-bar {
+      background: linear-gradient(90deg, var(--sage), var(--mint));
+      border-radius: 999px;
+    }
+
+    /* Form card */
+    .step-card {
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(35, 68, 68, .09);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 34px);
+      box-shadow: 0 20px 48px -28px rgba(74, 42, 53, .2);
+    }
+
+    .step-card[hidden] {
+      display: none !important;
+    }
+
+    .step-heading {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-block-end: 6px;
+      outline: none;
+    }
+
+    .step-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-block-end: 26px;
+    }
+
+    /* Question blocks */
+    .q-block {
+      border: 0;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+
+    .q-block + .q-block {
+      padding-block-start: 28px;
+      border-top: 1px solid rgba(35, 68, 68, .08);
+    }
+
+    .q-block:last-of-type {
+      margin-block-end: 8px;
+    }
+
+    .q-title {
+      display: block;
+      width: 100%;
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1.45;
+      margin-block-end: 6px;
+      padding: 0;
+    }
+
+    .req-star {
+      color: var(--coral);
+      margin-inline-start: 2px;
+      font-weight: 700;
+    }
+
+    .q-hint {
+      display: block;
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-block-end: 12px;
+      font-weight: 400;
+    }
+
+    .badge-optional {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--teal);
+      background: var(--light-green);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-inline-start: 6px;
+      vertical-align: middle;
+    }
+
+    /* Option list (clean, borderless rows) */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .option-row {
+      position: relative;
+    }
+
+    .option-input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 10px 12px;
+      margin-inline: -12px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.98rem;
+      line-height: 1.45;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease;
+    }
+
+    @media (pointer: coarse) {
+      .option-label {
+        min-height: 50px;
+        padding: 11px 12px;
+      }
+    }
+
+    .option-label:hover {
+      background: rgba(35, 68, 68, .045);
+    }
+
+    .option-control {
+      width: 21px;
+      height: 21px;
+      flex-shrink: 0;
+      border: 1.75px solid #7d9393;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .option-control--radio {
+      border-radius: 50%;
+    }
+
+    .option-control--check {
+      border-radius: 6px;
+    }
+
+    .option-input:checked + .option-label {
+      background: var(--light-green);
+      color: var(--deep);
+      font-weight: 500;
+    }
+
+    .option-input:checked + .option-label .option-control {
+      border-color: var(--deep);
+      background: var(--deep);
+    }
+
+    .option-input:checked + .option-label .option-control--radio::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .option-input:checked + .option-label .option-control--check::after {
+      content: "";
+      width: 13px;
+      height: 13px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .option-input:focus-visible + .option-label {
+      outline: 3px solid var(--coral);
+      outline-offset: 2px;
+    }
+
+    /* "Other" reveal input */
+    .other-wrap {
+      margin-block-start: 10px;
+      padding-inline-start: 12px;
+      border-inline-start: 3px solid var(--sage);
+    }
+
+    .other-wrap[hidden] {
+      display: none !important;
+    }
+
+    /* Rating scales (1-5 and 1-10) */
+    .scale-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .scale-grid--5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .scale-grid--10 {
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    @media (max-width: 560px) {
+      .scale-grid--10 {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .scale-item {
+      position: relative;
+    }
+
+    .scale-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border: 1.5px solid rgba(35, 68, 68, .22);
+      border-radius: 12px;
+      background: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--deep);
+      cursor: pointer;
+      transition: background .18s ease, border-color .18s ease, color .18s ease;
+    }
+
+    @media (pointer: coarse) {
+      .scale-label {
+        min-height: 52px;
+      }
+    }
+
+    .scale-label:hover {
+      background: var(--light-green);
+      border-color: var(--teal);
+    }
+
+    .option-input:checked + .scale-label {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+    }
+
+    .option-input:focus-visible + .scale-label {
+      outline: 3px solid var(--coral);
+      outline-offset: 2px;
+    }
+
+    .scale-anchors {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-block-start: 8px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* Text inputs & auto-growing textareas */
+    .text-input,
+    .text-area {
+      font: inherit;
+      font-size: max(1rem, 1em);
+      color: var(--ink);
+      width: 100%;
+      padding: 13px 16px;
+      min-height: 48px;
+      border: 1.5px solid rgba(35, 68, 68, .26);
+      border-radius: 14px;
+      background: var(--paper);
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    @media (pointer: coarse) {
+      .text-input {
+        min-height: 52px;
+      }
+    }
+
+    .text-area {
+      field-sizing: content;
+      height: auto;
+      min-block-size: 3.6lh;
+      max-block-size: 12lh;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .text-input::placeholder,
+    .text-area::placeholder {
+      color: #7c9292;
+    }
+
+    .text-input:focus,
+    .text-area:focus {
+      outline: none;
+      border-color: var(--deep);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(157, 202, 194, .45);
+    }
+
+    /* Validation & accessible error states */
+    .error-msg {
+      display: none;
+      margin-block-start: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--error-bg);
+      color: var(--error);
+      font-size: 0.88rem;
+      font-weight: 500;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .error-msg.is-visible {
+      display: flex;
+    }
+
+    :is(.text-input:user-invalid, .text-area:user-invalid, .text-input.user-invalid-fallback, .text-area.user-invalid-fallback) {
+      border-color: var(--error);
+      background: var(--error-bg);
+    }
+
+    :is(.text-input:user-invalid, .text-area:user-invalid, .text-input.user-invalid-fallback, .text-area.user-invalid-fallback) + .error-msg {
+      display: flex;
+    }
+
+    .q-block.has-error .option-control {
+      border-color: var(--error);
+    }
+
+    .q-block.has-error .scale-label {
+      background: var(--error-bg);
+    }
+
+    .form-global-error {
+      display: none;
+      margin-block-start: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--error-bg);
+      border: 1px solid rgba(184, 50, 39, .28);
+      color: var(--error);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .form-global-error.is-visible {
+      display: block;
+    }
+
+    /* Conditional Name reveal */
+    .conditional-block {
+      margin-block-start: 18px;
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--light-green);
+      border: 1px solid rgba(35, 68, 68, .12);
+    }
+
+    .conditional-block[hidden] {
+      display: none !important;
+    }
+
+    /* Navigation buttons */
+    .step-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-block-start: 28px;
+      padding-block-start: 20px;
+      border-top: 1px solid rgba(35, 68, 68, .09);
+    }
+
+    .step-actions--end {
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 50px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font: 600 1rem 'Heebo', sans-serif;
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .25s var(--ease), background .2s ease, box-shadow .25s ease, opacity .2s ease;
+    }
+
+    .btn--primary {
+      background: var(--deep);
+      color: #fff;
+      box-shadow: 0 12px 28px -14px rgba(18, 35, 36, .68);
+    }
+
+    .btn--primary:hover {
+      background: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    .btn--peach {
+      background: linear-gradient(135deg, var(--peach), var(--pink));
+      color: var(--deeper);
+      box-shadow: 0 14px 30px -12px rgba(238, 155, 132, .85);
+    }
+
+    .btn--peach:hover {
+      background: linear-gradient(135deg, #ffd4bf, #f8c6d2);
+      transform: translateY(-1px);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid rgba(35, 68, 68, .22);
+    }
+
+    .btn--ghost:hover {
+      background: var(--light-green);
+      border-color: var(--teal);
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn:disabled {
+      opacity: .65;
+      cursor: wait;
+      transform: none;
+    }
+
+    /* Success state */
+    .success-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(237, 244, 241, .88));
+      border: 1px solid rgba(35, 68, 68, .1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 22px 54px -26px rgba(31, 59, 59, .24);
+    }
+
+    .success-card[hidden],
+    .intro-card[hidden] {
+      display: none !important;
+    }
+
+    .success-hero {
+      position: relative;
+      height: clamp(160px, 26vw, 230px);
+      overflow: hidden;
+      background: #c7dfda;
+    }
+
+    .success-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 44%;
+      display: block;
+    }
+
+    .success-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 58%;
+      background: linear-gradient(180deg, rgba(255, 253, 251, 0) 0%, rgba(255, 255, 255, .96) 100%);
+      pointer-events: none;
+    }
+
+    .success-body {
+      position: relative;
+      z-index: 1;
+      margin-block-start: -34px;
+      padding: 0 clamp(22px, 5vw, 44px) clamp(34px, 5vw, 48px);
+    }
+
+    .success-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--deep);
+      color: #fff;
+      border: 4px solid #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-block-end: 16px;
+      box-shadow: 0 10px 24px -12px rgba(35, 68, 68, .45);
+    }
+
+    .success-badge .icon {
+      width: 26px;
+      height: 26px;
+      color: #fff;
+    }
+
+    .success-card h2 {
+      font-size: clamp(1.6rem, 4vw, 2.15rem);
+      font-weight: 800;
+      color: var(--deep);
+      margin-block-end: 12px;
+      outline: none;
+    }
+
+    .success-card p {
+      max-width: 560px;
+      margin-inline: auto;
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.72;
+      margin-block-end: 14px;
+      text-wrap: balance;
+    }
+
+    .success-card strong {
+      white-space: nowrap;
+    }
+
+    .success-sign {
+      font-weight: 600;
+      color: var(--teal);
+      margin-block-end: 28px !important;
+    }
+
+    /* Honeypot */
+    .hp-field {
+      position: absolute;
+      inset-inline-start: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 16px 32px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 520px) {
+      .stepper-item-text {
+        display: none;
+      }
+      .stepper-item[aria-current="step"] .stepper-item-text {
+        display: inline;
+      }
+      .stepper-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.96rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob--pink"></div>
+    <div class="blob blob--peach"></div>
+  </div>
+  <a href="#feedbackForm" class="skip-link">דלגו לשאלון</a>
+
+  <main>
+    <section class="intro-card" id="introCard" aria-labelledby="pageTitle">
+      <div class="intro-hero" aria-hidden="true">
+        <img src="assets/hero-cover-og.jpg" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="intro-body">
+        <span class="eyebrow">21 ימים · משוב סיום</span>
+        <h1 id="pageTitle">איך היה לכם במסע <span class="title-emphasis">להעיר את השפע</span>?</h1>
+        <p>תודה שהלכתם איתי את 21 הימים האלה. חשוב לי מאוד לשמוע מכם בכנות מה עבד לכם טוב, איפה פחות התחברתם ומה הייתם משנים.</p>
+        <p>השאלון קצר (כ-3 דקות), ואפשר למלא אותו גם בעילום שם. כל תשובה תעזור לי לדייק את המסע הלאה.</p>
+        <div class="intro-meta">
+          <span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            כ-3 דקות מילוי
+          </span>
+          <span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            אפשר גם בעילום שם
+          </span>
+          <span><span class="req-star" aria-hidden="true">*</span> שדות המסומנים בכוכבית הם חובה</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="stepper" id="stepperNav" aria-label="התקדמות בשאלון">
+      <ol class="stepper-list">
+        <li class="stepper-item" data-step-indicator="1" aria-current="step">
+          <span class="stepper-num">1</span>
+          <span class="stepper-item-text">החוויה הכללית</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="2">
+          <span class="stepper-num">2</span>
+          <span class="stepper-item-text">תוכן ומעטפת</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="3">
+          <span class="stepper-num">3</span>
+          <span class="stepper-item-text">מבט לאחור</span>
+        </li>
+      </ol>
+      <progress class="stepper-bar" id="progressBar" max="3" value="1" aria-label="שלב 1 מתוך 3"></progress>
+    </nav>
+
+    <form id="feedbackForm" method="POST" novalidate aria-labelledby="pageTitle">
+      <!-- Honeypot spam trap -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website_url">אל תמלאו שדה זה</label>
+        <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- ==================== STEP 1 ==================== -->
+      <section class="step-card" id="step1" data-step="1" aria-labelledby="step1Heading">
+        <h2 class="step-heading" id="step1Heading" tabindex="-1">שלב 1 מתוך 3 · ההתחלה והחוויה הכללית</h2>
+        <p class="step-sub">ארבע שאלות קצרות בקליקים מהירים.</p>
+
+        <!-- Q1 -->
+        <fieldset class="q-block" id="q1Group" data-required-group="q1_intent">
+          <legend class="q-title">
+            1. עם איזו כוונה או מטרה עיקרית הגעתם למסע? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <span class="q-hint">אפשר לבחור יותר מתשובה אחת</span>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_1" name="q1_intent" value="להוריד עומס ולהכניס יותר שקט ורוגע ליומיום">
+              <label class="option-label" for="q1_1">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>להוריד עומס ולהכניס יותר שקט ורוגע ליומיום</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_2" name="q1_intent" value="לשפר את היחסים עם כסף ופרנסה / להזמין יותר שפע חומרי">
+              <label class="option-label" for="q1_2">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>לשפר את היחסים עם כסף ופרנסה / להזמין יותר שפע חומרי</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_3" name="q1_intent" value="להכניס יותר בהירות, השראה או תנועה בעשייה וביצירה">
+              <label class="option-label" for="q1_3">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>להכניס יותר בהירות, השראה או תנועה בעשייה וביצירה</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_4" name="q1_intent" value="לפתוח מקום לאהבה, זוגיות או קשרים מיטיבים יותר">
+              <label class="option-label" for="q1_4">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>לפתוח מקום לאהבה, זוגיות או קשרים מיטיבים יותר</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_5" name="q1_intent" value="לחזק תחושת ביטחון, בריאות ורווחה פנימית">
+              <label class="option-label" for="q1_5">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>לחזק תחושת ביטחון, בריאות ורווחה פנימית</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_6" name="q1_intent" value="סתם מתוך סקרנות, בלי מטרה מוגדרת">
+              <label class="option-label" for="q1_6">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>סתם מתוך סקרנות, בלי מטרה מוגדרת</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q1_other_cb" name="q1_intent" value="אחר" aria-controls="q1OtherWrap" aria-expanded="false">
+              <label class="option-label" for="q1_other_cb">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>אחר</span>
+              </label>
+            </div>
+          </div>
+          <div class="other-wrap" id="q1OtherWrap" hidden>
+            <label class="q-hint" for="q1_other_text" style="margin-block-end:6px;">ספרו בקצרה מה הייתה הכוונה שלכם:</label>
+            <input class="text-input" type="text" id="q1_other_text" name="q1_other_text" placeholder="כתבו כאן..." enterkeyhint="next" maxlength="200">
+          </div>
+          <div id="q1-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו לפחות כוונה אחת כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q2 -->
+        <fieldset class="q-block" id="q2Group" data-required-group="q2_consistency">
+          <legend class="q-title">
+            2. עד כמה הצלחתם להתמיד בתרגול לאורך 21 הימים? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q2_1" name="q2_consistency" value="עשיתי כמעט הכול (18–21 ימים)" required>
+              <label class="option-label" for="q2_1">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>עשיתי כמעט הכול (18–21 ימים)</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q2_2" name="q2_consistency" value="עשיתי את רוב הימים (12–17 ימים)">
+              <label class="option-label" for="q2_2">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>עשיתי את רוב הימים (12–17 ימים)</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q2_3" name="q2_consistency" value="עשיתי חלק מהמסע (6–11 ימים)">
+              <label class="option-label" for="q2_3">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>עשיתי חלק מהמסע (6–11 ימים)</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q2_4" name="q2_consistency" value="הספקתי מעט ימים ואני מתכנן/ת להשלים בקצב שלי">
+              <label class="option-label" for="q2_4">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>הספקתי מעט ימים ואני מתכנן/ת להשלים בקצב שלי</span>
+              </label>
+            </div>
+          </div>
+          <div id="q2-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו אפשרות אחת כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q3 -->
+        <fieldset class="q-block" id="q3Group" data-required-group="q3_overall">
+          <legend class="q-title">
+            3. באופן כללי, איך הייתה החוויה שלכם מהמסע? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <div class="scale-grid scale-grid--5">
+            <div class="scale-item">
+              <input class="option-input" type="radio" id="q3_1" name="q3_overall" value="1" required>
+              <label class="scale-label" for="q3_1">1</label>
+            </div>
+            <div class="scale-item">
+              <input class="option-input" type="radio" id="q3_2" name="q3_overall" value="2">
+              <label class="scale-label" for="q3_2">2</label>
+            </div>
+            <div class="scale-item">
+              <input class="option-input" type="radio" id="q3_3" name="q3_overall" value="3">
+              <label class="scale-label" for="q3_3">3</label>
+            </div>
+            <div class="scale-item">
+              <input class="option-input" type="radio" id="q3_4" name="q3_overall" value="4">
+              <label class="scale-label" for="q3_4">4</label>
+            </div>
+            <div class="scale-item">
+              <input class="option-input" type="radio" id="q3_5" name="q3_overall" value="5">
+              <label class="scale-label" for="q3_5">5</label>
+            </div>
+          </div>
+          <div class="scale-anchors" aria-hidden="true">
+            <span>1 · פחות התאים לי</span>
+            <span>5 · חוויה משמעותית מאוד</span>
+          </div>
+          <div id="q3-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>דרגו את החוויה מ-1 עד 5 כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q4 -->
+        <fieldset class="q-block" id="q4Group" data-required-group="q4_weeks">
+          <legend class="q-title">
+            4. המסע חולק לשלושה שבועות — לאיזה מהם הכי התחברתם? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <span class="q-hint">אפשר לבחור יותר מתשובה אחת</span>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q4_1" name="q4_weeks" value="שבוע 1: לראות (נשימה, חושים, מה שכבר יש, רשות לרצות)">
+              <label class="option-label" for="q4_1">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span><strong>שבוע 1: לראות</strong> — נשימה, חושים, מה שכבר יש, רשות לרצות</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q4_2" name="q4_weeks" value="שבוע 2: לשחרר (חוקים, פינוי, כסף, פחד, גבולות, קבלה)">
+              <label class="option-label" for="q4_2">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span><strong>שבוע 2: לשחרר</strong> — חוקים, פינוי, כסף, פחד, גבולות, קבלה</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q4_3" name="q4_weeks" value="שבוע 3: ליצור ולהתרחב (מבט אחר, סקרנות, יצירה, ערך, עתיד)">
+              <label class="option-label" for="q4_3">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span><strong>שבוע 3: ליצור ולהתרחב</strong> — מבט אחר, סקרנות, יצירה, ערך, עתיד</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q4_4" name="q4_weeks" value="התחברתי לכולם במידה דומה">
+              <label class="option-label" for="q4_4">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>התחברתי לכולם במידה דומה</span>
+              </label>
+            </div>
+          </div>
+          <div id="q4-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו לפחות אפשרות אחת כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <div class="step-actions step-actions--end">
+          <button type="button" class="btn btn--primary" data-next-step="2">המשך לשלב 2 ←</button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 2 ==================== -->
+      <section class="step-card" id="step2" data-step="2" aria-labelledby="step2Heading" hidden>
+        <h2 class="step-heading" id="step2Heading" tabindex="-1">שלב 2 מתוך 3 · התוכן, המדיטציות והמעטפת</h2>
+        <p class="step-sub">השאלות הפתוחות כאן הן רשות — כתבו רק איפה שיש לכם משהו שחשוב לשתף.</p>
+
+        <!-- Q5 -->
+        <fieldset class="q-block" id="q5Group" data-required-group="q5_meditations">
+          <legend class="q-title">
+            5. המדיטציות שילבו כמה סוגי חוויות. מה הכי עבד לכם בהקלטות? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <span class="q-hint">אפשר לבחור יותר מתשובה אחת</span>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q5_1" name="q5_meditations" value="ההרגעה בגוף והנשימה">
+              <label class="option-label" for="q5_1">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>ההרגעה בגוף והנשימה</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q5_2" name="q5_meditations" value="הדמיון המודרך הוויזואלי (השביל, הגינה, האגם, השוק וכו׳)">
+              <label class="option-label" for="q5_2">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>הדמיון המודרך הוויזואלי (השביל, הגינה, האגם, השוק וכו׳)</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q5_3" name="q5_meditations" value="השאלות הפנימיות והעבודה על דפוסים ורגשות (כסף, פחד, גבולות, קבלה)">
+              <label class="option-label" for="q5_3">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>השאלות הפנימיות והעבודה על דפוסים ורגשות (כסף, פחד, גבולות, קבלה)</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q5_4" name="q5_meditations" value="הקול, הקצב והאווירה הכללית">
+              <label class="option-label" for="q5_4">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>הקול, הקצב והאווירה הכללית</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q5_other_cb" name="q5_meditations" value="אחר" aria-controls="q5OtherWrap" aria-expanded="false">
+              <label class="option-label" for="q5_other_cb">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>אחר</span>
+              </label>
+            </div>
+          </div>
+          <div class="other-wrap" id="q5OtherWrap" hidden>
+            <label class="q-hint" for="q5_other_text" style="margin-block-end:6px;">מה עוד עבד לכם טוב בהקלטות?</label>
+            <input class="text-input" type="text" id="q5_other_text" name="q5_other_text" placeholder="כתבו כאן..." enterkeyhint="next" maxlength="200">
+          </div>
+          <div id="q5-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו לפחות אפשרות אחת כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q6 (merged 5 & 7) -->
+        <div class="q-block">
+          <label class="q-title" for="q6_weeks_chapters">
+            6. היה שבוע או פרק ספציפי שפחות התחברתם אליו — או להפך, שנשאר איתכם במיוחד? למה?
+            <span class="badge-optional">רשות</span>
+          </label>
+          <textarea class="text-area" id="q6_weeks_chapters" name="q6_weeks_chapters" placeholder="אפשר לכתוב בחופשיות מה הרגיש מדויק או מה פחות עבד..."></textarea>
+        </div>
+
+        <!-- Q7 (was 8) -->
+        <fieldset class="q-block" id="q7Group" data-required-group="q7_tasks">
+          <legend class="q-title">
+            7. איך הרגישו לכם משימות העומק היומיות (מבחינת עומס, רלוונטיות ותוכן)? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <span class="q-hint">אפשר לבחור יותר מתשובה אחת</span>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q7_1" name="q7_tasks" value="מדויקות ועמוקות, הוסיפו המון מעבר למדיטציה">
+              <label class="option-label" for="q7_1">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>מדויקות ועמוקות, הוסיפו המון מעבר למדיטציה</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q7_2" name="q7_tasks" value="לפעמים הרגישו עמוסות או תובעניות מדי ביחס ליומיום">
+              <label class="option-label" for="q7_2">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>לפעמים הרגישו עמוסות או תובעניות מדי ביחס ליומיום</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q7_3" name="q7_tasks" value="חלקן הרגישו לי פחות רלוונטיות למקום שבו אני נמצא/ת כרגע">
+              <label class="option-label" for="q7_3">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>חלקן הרגישו לי פחות רלוונטיות למקום שבו אני נמצא/ת כרגע</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q7_4" name="q7_tasks" value="התחברתי יותר למשימות ההתבוננות והכתיבה מאשר למשימות העשייה">
+              <label class="option-label" for="q7_4">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>התחברתי יותר למשימות ההתבוננות והכתיבה מאשר למשימות העשייה</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="checkbox" id="q7_5" name="q7_tasks" value="התחברתי יותר למשימות הפרקטיות והמעשיות">
+              <label class="option-label" for="q7_5">
+                <span class="option-control option-control--check" aria-hidden="true"></span>
+                <span>התחברתי יותר למשימות הפרקטיות והמעשיות</span>
+              </label>
+            </div>
+          </div>
+          <div id="q7-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו לפחות אפשרות אחת כדי להמשיך.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q8 (was 9) -->
+        <div class="q-block">
+          <label class="q-title" for="q8_missing_topic">
+            8. האם יש נושא או כיוון שהרגשתם שהיה חסר במסע — או נושא שתפס יותר מדי מקום?
+            <span class="badge-optional">רשות</span>
+          </label>
+          <textarea class="text-area" id="q8_missing_topic" name="q8_missing_topic" placeholder="כתבו כאן אם עולה משהו..."></textarea>
+        </div>
+
+        <!-- Q9 (was 10) -->
+        <div class="q-block">
+          <label class="q-title" for="q9_envelope">
+            9. כמה מילים על המעטפת (אורך המדיטציות, הקבוצה השקטה בוואטסאפ, סקר הערב):
+            <span class="badge-optional">רשות</span>
+          </label>
+          <span class="q-hint">מה עבד טוב ומה כדאי לשפר?</span>
+          <textarea class="text-area" id="q9_envelope" name="q9_envelope" placeholder="אורך, שעות שליחה, הקבוצה, הסקר..."></textarea>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn--ghost" data-prev-step="1">→ חזרה</button>
+          <button type="button" class="btn btn--primary" data-next-step="3">המשך לשלב האחרון ←</button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 3 ==================== -->
+      <section class="step-card" id="step3" data-step="3" aria-labelledby="step3Heading" hidden>
+        <h2 class="step-heading" id="step3Heading" tabindex="-1">שלב 3 מתוך 3 · מבט לאחור והמלצה</h2>
+        <p class="step-sub">עוד רגע מסיימים — תודה שאתם כאן.</p>
+
+        <!-- Q10 (was 11) -->
+        <div class="q-block">
+          <label class="q-title" for="q10_shift">
+            10. אם מסתכלים אחורה על 21 הימים האלה — האם משהו זז, נפתח או השתנה אצלכם (בתחושה, בנקודת המבט או בחיים עצמם)?
+            <span class="badge-optional">רשות</span>
+          </label>
+          <textarea class="text-area" id="q10_shift" name="q10_shift" placeholder="גם שינוי קטן או עדין נחשב..."></textarea>
+        </div>
+
+        <!-- Q11 (was 12) -->
+        <fieldset class="q-block" id="q11Group" data-required-group="q11_nps">
+          <legend class="q-title">
+            11. האם הייתם ממליצים על המסע לחבר/ה? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <div class="scale-grid scale-grid--10">
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_1" name="q11_nps" value="1" required><label class="scale-label" for="q11_1">1</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_2" name="q11_nps" value="2"><label class="scale-label" for="q11_2">2</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_3" name="q11_nps" value="3"><label class="scale-label" for="q11_3">3</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_4" name="q11_nps" value="4"><label class="scale-label" for="q11_4">4</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_5" name="q11_nps" value="5"><label class="scale-label" for="q11_5">5</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_6" name="q11_nps" value="6"><label class="scale-label" for="q11_6">6</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_7" name="q11_nps" value="7"><label class="scale-label" for="q11_7">7</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_8" name="q11_nps" value="8"><label class="scale-label" for="q11_8">8</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_9" name="q11_nps" value="9"><label class="scale-label" for="q11_9">9</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_10" name="q11_nps" value="10"><label class="scale-label" for="q11_10">10</label></div>
+          </div>
+          <div class="scale-anchors" aria-hidden="true">
+            <span>1 · פחות סביר</span>
+            <span>10 · לגמרי ממליץ/ה</span>
+          </div>
+          <div id="q11-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו ציון בין 1 ל-10.</span>
+          </div>
+        </fieldset>
+
+        <!-- Q12 (was 13) -->
+        <div class="q-block">
+          <label class="q-title" for="q12_quote">
+            12. ואם מישהו היה שואל אתכם ״מה זה בעצם המסע הזה ואיך היה לך?״ — מה הייתם עונים לו בשני משפטים?
+            <span class="badge-optional">רשות</span>
+          </label>
+          <textarea class="text-area" id="q12_quote" name="q12_quote" placeholder="בשתי שורות במילים שלכם..."></textarea>
+        </div>
+
+        <!-- Q13 (was 14) -->
+        <fieldset class="q-block" id="q13Group" data-required-group="q13_quote_permission">
+          <legend class="q-title">
+            13. אפשר לצטט את המשפט שכתבתם בשאלה הקודמת בעמוד של המסע או ברשתות? <span class="req-star" aria-hidden="true">*</span>
+          </legend>
+          <div class="options-grid">
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q13_1" name="q13_quote_permission" value="כן, בשמחה — עם השם המלא שלי" required>
+              <label class="option-label" for="q13_1">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>כן, בשמחה — עם השם המלא שלי</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q13_2" name="q13_quote_permission" value="כן — עם שם פרטי בלבד / ראשי תיבות">
+              <label class="option-label" for="q13_2">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>כן — עם שם פרטי בלבד / ראשי תיבות</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q13_3" name="q13_quote_permission" value="כן — בעילום שם">
+              <label class="option-label" for="q13_3">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>כן — בעילום שם</span>
+              </label>
+            </div>
+            <div class="option-row">
+              <input class="option-input" type="radio" id="q13_4" name="q13_quote_permission" value="מעדיף/ה שזה יישאר רק בינינו">
+              <label class="option-label" for="q13_4">
+                <span class="option-control option-control--radio" aria-hidden="true"></span>
+                <span>מעדיף/ה שזה יישאר רק בינינו</span>
+              </label>
+            </div>
+          </div>
+          <div id="q13-error" class="error-msg">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="שגיאה"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>בחרו אפשרות אחת כדי שנדע איך לשמור על הפרטיות שלכם.</span>
+          </div>
+
+          <!-- Q14 (Conditional Name field — shown only if quote with full name or first name/initials is chosen) -->
+          <div class="conditional-block" id="nameReveal" hidden>
+            <label class="q-title" for="q14_name" id="nameLabel" style="font-size:1rem;">
+              איך לרשום את השם שלכם ליד הציטוט?
+            </label>
+            <input
+              class="text-input"
+              type="text"
+              id="q14_name"
+              name="q14_name"
+              autocomplete="name"
+              enterkeyhint="done"
+              maxlength="100"
+              placeholder="שם מלא או שם פרטי"
+            >
+          </div>
+        </fieldset>
+
+        <div id="formGlobalError" class="form-global-error" role="alert" aria-live="assertive"></div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn--ghost" data-prev-step="2">→ חזרה</button>
+          <button type="submit" class="btn btn--primary" id="btnSubmit">שליחת המשוב</button>
+        </div>
+      </section>
+    </form>
+
+    <!-- Success Screen -->
+    <section class="success-card" id="successCard" aria-labelledby="successHeading" hidden>
+      <div class="success-hero" aria-hidden="true">
+        <img src="assets/hero-cover-og.jpg" alt="" decoding="async">
+      </div>
+      <div class="success-body">
+        <div class="success-badge" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 id="successHeading" tabindex="-1">תודה גדולה ששיתפתם</h2>
+        <p>התשובות שלכם התקבלו ונשמרו. אני קוראת כל מילה בתשומת לב, והמשוב שלכם יעזור לי להפוך את המחזורים הבאים של <strong>להעיר את השפע</strong> למדויקים ומיטיבים עוד יותר.</p>
+        <p class="success-sign">תודה שהייתם חלק מהמסע, הלית</p>
+        <a href="https://21.saydigitaldesign.com/" class="btn btn--primary">חזרה לעמוד המסע</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    להעיר את השפע · הלית סייפן אלטמן · <a href="https://api.whatsapp.com/send?phone=972506536444" target="_blank" rel="noopener noreferrer">שאלות? דברו איתי בוואטסאפ</a>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // הגדרת חיבור ל-Google Sheets (להדביק כאן את כתובת ה-Web App של Apps Script)
+    // =========================================================================
+    const FEEDBACK_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxI9G9ttyXv-gzENSsGGgiV6OHh3Zf_om2OACs6NmndFhVtD9LXFVlNROXHXJaN-wtC/exec";
+
+    (() => {
+      const form = document.getElementById('feedbackForm');
+      const introCard = document.getElementById('introCard');
+      const stepperNav = document.getElementById('stepperNav');
+      const progressBar = document.getElementById('progressBar');
+      const stepCards = [...document.querySelectorAll('.step-card')];
+      const stepIndicators = [...document.querySelectorAll('[data-step-indicator]')];
+      const successCard = document.getElementById('successCard');
+      const successHeading = document.getElementById('successHeading');
+      const globalError = document.getElementById('formGlobalError');
+      const btnSubmit = document.getElementById('btnSubmit');
+
+      let currentStep = 1;
+
+      // ---- Single polite live region for accessible error announcements ----
+      const announcer = document.createElement('div');
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.classList.add('visually-hidden');
+      document.body.append(announcer);
+      let announceTimer;
+
+      const announce = (msg) => {
+        clearTimeout(announceTimer);
+        announcer.textContent = '';
+        announceTimer = setTimeout(() => {
+          announcer.textContent = msg;
+        }, 200);
+      };
+
+      // ---- Start all text controls at aria-invalid="false" ----
+      form.querySelectorAll('input, textarea').forEach((el) => {
+        el.setAttribute('aria-invalid', 'false');
+      });
+
+      // ---- "Other" checkbox reveals ----
+      const wireOtherToggle = (checkboxId, wrapId, inputId) => {
+        const cb = document.getElementById(checkboxId);
+        const wrap = document.getElementById(wrapId);
+        const input = document.getElementById(inputId);
+        if (!cb || !wrap) return;
+        cb.addEventListener('change', () => {
+          const open = cb.checked;
+          wrap.hidden = !open;
+          cb.setAttribute('aria-expanded', String(open));
+          if (open && input) input.focus();
+          if (!open && input) input.value = '';
+        });
+      };
+
+      wireOtherToggle('q1_other_cb', 'q1OtherWrap', 'q1_other_text');
+      wireOtherToggle('q5_other_cb', 'q5OtherWrap', 'q5_other_text');
+
+      // ---- Conditional Name field (Q13 -> Q14) ----
+      const nameReveal = document.getElementById('nameReveal');
+      const nameInput = document.getElementById('q14_name');
+      const nameLabel = document.getElementById('nameLabel');
+      const q13Radios = form.querySelectorAll('input[name="q13_quote_permission"]');
+
+      q13Radios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          const val = radio.value;
+          const wantsFull = val.includes('השם המלא');
+          const wantsFirst = val.includes('שם פרטי');
+          if (wantsFull || wantsFirst) {
+            nameReveal.hidden = false;
+            nameLabel.textContent = wantsFull
+              ? 'איך לרשום את השם המלא שלכם ליד הציטוט?'
+              : 'איך לרשום את השם הפרטי או ראשי התיבות שלכם?';
+            nameInput.placeholder = wantsFull ? 'שם מלא' : 'שם פרטי או ראשי תיבות (למשל: דנה / ד.כ.)';
+            nameInput.focus();
+          } else {
+            nameReveal.hidden = true;
+            nameInput.value = '';
+          }
+        });
+      });
+
+      // ---- Group validation helper (checkboxes & radios) ----
+      const validateGroup = (fieldset) => {
+        const groupName = fieldset.dataset.requiredGroup;
+        if (!groupName) return true;
+        const inputs = [...fieldset.querySelectorAll(`input[name="${groupName}"]`)];
+        const isChecked = inputs.some((el) => el.checked);
+        const errorEl = fieldset.querySelector('.error-msg');
+
+        fieldset.classList.toggle('has-error', !isChecked);
+        if (errorEl) errorEl.classList.toggle('is-visible', !isChecked);
+        inputs.forEach((el) => {
+          el.setAttribute('aria-invalid', isChecked ? 'false' : 'true');
+          if (errorEl) {
+            if (!isChecked) el.setAttribute('aria-describedby', errorEl.id);
+            else el.removeAttribute('aria-describedby');
+          }
+        });
+        return isChecked;
+      };
+
+      // Clear group error as soon as the user picks an option
+      form.addEventListener('change', (e) => {
+        const fieldset = e.target.closest('fieldset[data-required-group]');
+        if (fieldset && fieldset.classList.contains('has-error')) {
+          validateGroup(fieldset);
+        }
+      });
+
+      const validateStep = (stepNumber) => {
+        const section = document.getElementById(`step${stepNumber}`);
+        if (!section) return true;
+        const requiredGroups = [...section.querySelectorAll('fieldset[data-required-group]')];
+        let firstInvalidInput = null;
+        let firstErrorText = '';
+
+        requiredGroups.forEach((group) => {
+          const ok = validateGroup(group);
+          if (!ok && !firstInvalidInput) {
+            firstInvalidInput = group.querySelector('input');
+            const err = group.querySelector('.error-msg');
+            firstErrorText = err ? err.textContent.trim() : 'יש שדה חובה שחסר.';
+          }
+        });
+
+        if (firstInvalidInput) {
+          firstInvalidInput.closest('.q-block').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstInvalidInput.focus({ preventScroll: true });
+          announce(firstErrorText);
+          return false;
+        }
+        return true;
+      };
+
+      // ---- Step navigation ----
+      const goToStep = (nextStep) => {
+        currentStep = nextStep;
+        if (introCard) introCard.hidden = currentStep !== 1;
+        stepCards.forEach((card) => {
+          const stepNum = Number(card.dataset.step);
+          card.hidden = stepNum !== currentStep;
+        });
+
+        stepIndicators.forEach((item) => {
+          const stepNum = Number(item.dataset.stepIndicator);
+          item.classList.toggle('is-done', stepNum < currentStep);
+          if (stepNum === currentStep) {
+            item.setAttribute('aria-current', 'step');
+          } else {
+            item.removeAttribute('aria-current');
+          }
+        });
+
+        progressBar.value = currentStep;
+        progressBar.setAttribute('aria-label', `שלב ${currentStep} מתוך 3`);
+
+        const activeHeading = document.getElementById(`step${currentStep}Heading`);
+        if (activeHeading) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          activeHeading.focus({ preventScroll: true });
+        }
+      };
+
+      form.querySelectorAll('[data-next-step]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (validateStep(currentStep)) {
+            goToStep(Number(btn.dataset.nextStep));
+          }
+        });
+      });
+
+      form.querySelectorAll('[data-prev-step]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          goToStep(Number(btn.dataset.prevStep));
+        });
+      });
+
+      // ---- Collect payload ----
+      const getCheckedValues = (name, otherInputId) => {
+        const vals = [...form.querySelectorAll(`input[name="${name}"]:checked`)].map((el) => el.value);
+        if (otherInputId) {
+          const otherVal = document.getElementById(otherInputId)?.value.trim();
+          const idx = vals.indexOf('אחר');
+          if (idx !== -1 && otherVal) {
+            vals[idx] = `אחר: ${otherVal}`;
+          }
+        }
+        return vals.join(' | ');
+      };
+
+      const getRadioValue = (name) => {
+        const el = form.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : '';
+      };
+
+      const showSuccessScreen = () => {
+        if (introCard) introCard.hidden = true;
+        form.hidden = true;
+        stepperNav.hidden = true;
+        successCard.hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        successHeading.focus({ preventScroll: true });
+      };
+
+      // Allow previewing the thank-you screen via ?preview=thanks
+      if (new URLSearchParams(window.location.search).get('preview') === 'thanks') {
+        showSuccessScreen();
+      }
+
+      // ---- Submit handler ----
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        globalError.classList.remove('is-visible');
+        globalError.textContent = '';
+
+        // Honeypot check
+        if (document.getElementById('website_url').value.trim() !== '') {
+          showSuccessScreen();
+          return;
+        }
+
+        if (!validateStep(currentStep)) return;
+
+        const payload = {
+          timestamp: new Date().toISOString(),
+          q1_intent: getCheckedValues('q1_intent', 'q1_other_text'),
+          q2_consistency: getRadioValue('q2_consistency'),
+          q3_overall: getRadioValue('q3_overall'),
+          q4_weeks: getCheckedValues('q4_weeks'),
+          q5_meditations: getCheckedValues('q5_meditations', 'q5_other_text'),
+          q6_weeks_chapters: document.getElementById('q6_weeks_chapters').value.trim(),
+          q7_tasks: getCheckedValues('q7_tasks'),
+          q8_missing_topic: document.getElementById('q8_missing_topic').value.trim(),
+          q9_envelope: document.getElementById('q9_envelope').value.trim(),
+          q10_shift: document.getElementById('q10_shift').value.trim(),
+          q11_nps: getRadioValue('q11_nps'),
+          q12_quote: document.getElementById('q12_quote').value.trim(),
+          q13_quote_permission: getRadioValue('q13_quote_permission'),
+          q14_name: document.getElementById('q14_name').value.trim()
+        };
+
+        // Local backup
+        try {
+          const backups = JSON.parse(localStorage.getItem('abundance21_feedback_backup') || '[]');
+          backups.push(payload);
+          localStorage.setItem('abundance21_feedback_backup', JSON.stringify(backups));
+        } catch (_) {}
+
+        btnSubmit.disabled = true;
+        const originalText = btnSubmit.textContent;
+        btnSubmit.textContent = 'שולח...';
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        try {
+          if (!FEEDBACK_WEBHOOK_URL || FEEDBACK_WEBHOOK_URL.trim() === '') {
+            throw new Error('WEBHOOK_NOT_CONFIGURED');
+          }
+
+          const res = await fetch(FEEDBACK_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const result = await res.json();
+          if (!result || result.status !== 'success') {
+            throw new Error((result && result.message) || 'Save failed');
+          }
+
+          // Success!
+          showSuccessScreen();
+        } catch (err) {
+          clearTimeout(timeoutId);
+          console.error('Feedback submit error:', err);
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = originalText;
+
+          if (err.message === 'WEBHOOK_NOT_CONFIGURED') {
+            globalError.textContent = 'השאלון עדיין לא מחובר ל-Google Sheets (חסרה כתובת FEEDBACK_WEBHOOK_URL בקוד). התשובות נשמרו כגיבוי מקומי בדפדפן.';
+          } else {
+            globalError.textContent = 'אופס, הייתה בעיית תקשורת בשליחה. נסו ללחוץ שוב על "שליחת המשוב" — כל מה שכתבתם נשמר על המסך.';
+          }
+          globalError.classList.add('is-visible');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
