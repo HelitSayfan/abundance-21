@@ -1305,7 +1305,7 @@
           <div class="price-side">
             <div class="date">תאריך התחלה: 1 בדצמבר, 2026</div>
             <div class="label">מחיר השקה מיוחד</div>
-            <div class="price"><span data-count="42" data-start="120">120</span><small> ₪</small></div>
+            <div class="price" aria-label="42 ₪"><span data-count="42" data-start="120" aria-hidden="true">42</span><small aria-hidden="true"> ₪</small></div>
             <button type="button" class="btn" id="btnOpenModal" data-open-modal>מצטרפים למסע</button>
           </div>
         </div>
@@ -1975,14 +1975,14 @@
       const target = +el.dataset.count;
       const start = +el.dataset.start || 120;
       el.style.display = 'inline-block';
+      el.textContent = target;
       if (reduce) {
-        el.textContent = target;
         return;
       }
-      el.textContent = start;
       new IntersectionObserver(([e], o) => {
         if (!e.isIntersecting) return;
         o.disconnect();
+        el.textContent = start;
         const duration = 2100;
         const startTime = performance.now();
         (function tick(now) {
