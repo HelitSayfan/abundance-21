@@ -609,28 +609,62 @@
 
     .scale-label {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      border: 1.5px solid rgba(35, 68, 68, .22);
-      border-radius: 12px;
+      gap: 6px;
+      min-height: 76px;
+      padding: 10px 4px;
+      border: 1.5px solid rgba(35, 68, 68, .18);
+      border-radius: 14px;
       background: #fff;
-      font-size: 1.05rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--deep);
       cursor: pointer;
       transition: background .18s ease, border-color .18s ease, color .18s ease;
     }
 
+    .scale-face {
+      width: 36px;
+      height: 36px;
+      display: block;
+      transition: transform .22s var(--ease);
+    }
+
+    .scale-grid--10 .scale-label {
+      min-height: 68px;
+      padding: 8px 2px;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    .scale-grid--10 .scale-face {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (max-width: 560px) {
+      .scale-grid--10 .scale-face {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
     @media (pointer: coarse) {
       .scale-label {
-        min-height: 52px;
+        min-height: 78px;
       }
     }
 
     .scale-label:hover {
       background: var(--light-green);
       border-color: var(--teal);
+    }
+
+    .scale-label:hover .scale-face,
+    .option-input:checked + .scale-label .scale-face {
+      transform: scale(1.08);
     }
 
     .option-input:checked + .scale-label {
@@ -974,6 +1008,50 @@
     <div class="blob blob--pink"></div>
     <div class="blob blob--peach"></div>
   </div>
+
+  <!-- Abundance-style flat illustrated rating faces (reusable SVG symbols) -->
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="face-1" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="#f5cdd3"/>
+      <path d="M11.5 13.5 A11.5 11.5 0 0 1 20 8.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+      <circle cx="14.5" cy="18.2" r="1.8" fill="#234444"/>
+      <circle cx="25.5" cy="18.2" r="1.8" fill="#234444"/>
+      <path d="M15 26.8 Q20 23.4 25 26.8" fill="none" stroke="#234444" stroke-width="2.1" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="face-2" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="#fbe0d0"/>
+      <path d="M11.5 13.5 A11.5 11.5 0 0 1 20 8.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+      <circle cx="14.5" cy="18" r="1.8" fill="#234444"/>
+      <circle cx="25.5" cy="18" r="1.8" fill="#234444"/>
+      <line x1="15" y1="25.4" x2="25" y2="25.4" stroke="#234444" stroke-width="2.1" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="face-3" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="#e5f1ec"/>
+      <path d="M11.5 13.5 A11.5 11.5 0 0 1 20 8.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+      <circle cx="14.5" cy="17.8" r="1.8" fill="#234444"/>
+      <circle cx="25.5" cy="17.8" r="1.8" fill="#234444"/>
+      <path d="M15.2 24 Q20 27.6 24.8 24" fill="none" stroke="#234444" stroke-width="2.1" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="face-4" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="#c4e3d7"/>
+      <path d="M11.5 13.5 A11.5 11.5 0 0 1 20 8.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+      <ellipse cx="11.4" cy="21.6" rx="2.6" ry="1.6" fill="#ee9b84" opacity=".6"/>
+      <ellipse cx="28.6" cy="21.6" rx="2.6" ry="1.6" fill="#ee9b84" opacity=".6"/>
+      <circle cx="14.5" cy="17.4" r="1.85" fill="#234444"/>
+      <circle cx="25.5" cy="17.4" r="1.85" fill="#234444"/>
+      <path d="M14 23.4 Q20 28.6 26 23.4" fill="none" stroke="#234444" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="face-5" viewBox="0 0 40 40">
+      <circle cx="20" cy="20.5" r="15.5" fill="#9dcac2"/>
+      <path d="M11.8 14 A11 11 0 0 1 20 9.2" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+      <ellipse cx="11.4" cy="22.2" rx="2.8" ry="1.7" fill="#ee9b84" opacity=".75"/>
+      <ellipse cx="28.6" cy="22.2" rx="2.8" ry="1.7" fill="#ee9b84" opacity=".75"/>
+      <path d="M12.2 18.2 Q14.6 15.2 17 18.2" fill="none" stroke="#234444" stroke-width="2.1" stroke-linecap="round"/>
+      <path d="M23 18.2 Q25.4 15.2 27.8 18.2" fill="none" stroke="#234444" stroke-width="2.1" stroke-linecap="round"/>
+      <path d="M13.8 23.5 Q20 29.2 26.2 23.5" fill="none" stroke="#234444" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M33.5 3.5 L34.4 6.2 L37.1 7.1 L34.4 8 L33.5 10.7 L32.6 8 L29.9 7.1 L32.6 6.2 Z" fill="#ee9b84"/>
+    </symbol>
+  </svg>
   <a href="#feedbackForm" class="skip-link">דלגו לשאלון</a>
 
   <main>
@@ -1146,23 +1224,23 @@
           <div class="scale-grid scale-grid--5">
             <div class="scale-item">
               <input class="option-input" type="radio" id="q3_1" name="q3_overall" value="1" required>
-              <label class="scale-label" for="q3_1">1</label>
+              <label class="scale-label" for="q3_1"><svg class="scale-face" aria-hidden="true"><use href="#face-1"/></svg><span>1</span></label>
             </div>
             <div class="scale-item">
               <input class="option-input" type="radio" id="q3_2" name="q3_overall" value="2">
-              <label class="scale-label" for="q3_2">2</label>
+              <label class="scale-label" for="q3_2"><svg class="scale-face" aria-hidden="true"><use href="#face-2"/></svg><span>2</span></label>
             </div>
             <div class="scale-item">
               <input class="option-input" type="radio" id="q3_3" name="q3_overall" value="3">
-              <label class="scale-label" for="q3_3">3</label>
+              <label class="scale-label" for="q3_3"><svg class="scale-face" aria-hidden="true"><use href="#face-3"/></svg><span>3</span></label>
             </div>
             <div class="scale-item">
               <input class="option-input" type="radio" id="q3_4" name="q3_overall" value="4">
-              <label class="scale-label" for="q3_4">4</label>
+              <label class="scale-label" for="q3_4"><svg class="scale-face" aria-hidden="true"><use href="#face-4"/></svg><span>4</span></label>
             </div>
             <div class="scale-item">
               <input class="option-input" type="radio" id="q3_5" name="q3_overall" value="5">
-              <label class="scale-label" for="q3_5">5</label>
+              <label class="scale-label" for="q3_5"><svg class="scale-face" aria-hidden="true"><use href="#face-5"/></svg><span>5</span></label>
             </div>
           </div>
           <div class="scale-anchors" aria-hidden="true">
@@ -1383,16 +1461,16 @@
             11. האם הייתם ממליצים על המסע לחבר/ה? <span class="req-star" aria-hidden="true">*</span>
           </legend>
           <div class="scale-grid scale-grid--10">
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_1" name="q11_nps" value="1" required><label class="scale-label" for="q11_1">1</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_2" name="q11_nps" value="2"><label class="scale-label" for="q11_2">2</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_3" name="q11_nps" value="3"><label class="scale-label" for="q11_3">3</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_4" name="q11_nps" value="4"><label class="scale-label" for="q11_4">4</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_5" name="q11_nps" value="5"><label class="scale-label" for="q11_5">5</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_6" name="q11_nps" value="6"><label class="scale-label" for="q11_6">6</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_7" name="q11_nps" value="7"><label class="scale-label" for="q11_7">7</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_8" name="q11_nps" value="8"><label class="scale-label" for="q11_8">8</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_9" name="q11_nps" value="9"><label class="scale-label" for="q11_9">9</label></div>
-            <div class="scale-item"><input class="option-input" type="radio" id="q11_10" name="q11_nps" value="10"><label class="scale-label" for="q11_10">10</label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_1" name="q11_nps" value="1" required><label class="scale-label" for="q11_1"><svg class="scale-face" aria-hidden="true"><use href="#face-1"/></svg><span>1</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_2" name="q11_nps" value="2"><label class="scale-label" for="q11_2"><svg class="scale-face" aria-hidden="true"><use href="#face-1"/></svg><span>2</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_3" name="q11_nps" value="3"><label class="scale-label" for="q11_3"><svg class="scale-face" aria-hidden="true"><use href="#face-1"/></svg><span>3</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_4" name="q11_nps" value="4"><label class="scale-label" for="q11_4"><svg class="scale-face" aria-hidden="true"><use href="#face-2"/></svg><span>4</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_5" name="q11_nps" value="5"><label class="scale-label" for="q11_5"><svg class="scale-face" aria-hidden="true"><use href="#face-2"/></svg><span>5</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_6" name="q11_nps" value="6"><label class="scale-label" for="q11_6"><svg class="scale-face" aria-hidden="true"><use href="#face-3"/></svg><span>6</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_7" name="q11_nps" value="7"><label class="scale-label" for="q11_7"><svg class="scale-face" aria-hidden="true"><use href="#face-3"/></svg><span>7</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_8" name="q11_nps" value="8"><label class="scale-label" for="q11_8"><svg class="scale-face" aria-hidden="true"><use href="#face-4"/></svg><span>8</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_9" name="q11_nps" value="9"><label class="scale-label" for="q11_9"><svg class="scale-face" aria-hidden="true"><use href="#face-5"/></svg><span>9</span></label></div>
+            <div class="scale-item"><input class="option-input" type="radio" id="q11_10" name="q11_nps" value="10"><label class="scale-label" for="q11_10"><svg class="scale-face" aria-hidden="true"><use href="#face-5"/></svg><span>10</span></label></div>
           </div>
           <div class="scale-anchors" aria-hidden="true">
             <span>1 · פחות סביר</span>
